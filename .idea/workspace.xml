@@ -1,0 +1,1048 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4d02e457-59db-4ed4-b1a8-0d0ec7fdb78e" name="Default" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/MySites$DBUtils.coverage" NAME="DBUtils Coverage Results" MODIFIED="1528612266021" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
+    <SUITE FILE_PATH="coverage/MySites$DBUtils__2_.coverage" NAME="DBUtils (2) Coverage Results" MODIFIED="1528612618083" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
+    <SUITE FILE_PATH="coverage/MySites$utils.coverage" NAME="utils Coverage Results" MODIFIED="1528253745270" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
+    <SUITE FILE_PATH="coverage/MySites$DBUtils__1_.coverage" NAME="DBUtils (1) Coverage Results" MODIFIED="1528612379293" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SitesApp" />
+    <SUITE FILE_PATH="coverage/MySites$tests.coverage" NAME="tests Coverage Results" MODIFIED="1528598495478" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SitesApp" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="mysites@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="mysites@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="mysites: schema" type="c314c289:MysqlImplModel$Schema" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="MySites" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/SitesApp/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-180">
+              <caret line="98" column="32" lean-forward="true" selection-start-line="98" selection-start-column="32" selection-end-line="98" selection-end-column="32" />
+              <folding>
+                <element signature="e#824#1088#0" />
+                <element signature="e#914#1072#0" />
+                <element signature="e#1123#1502#0" />
+                <element signature="e#1541#1599#0" />
+                <element signature="e#1600#1604#0" />
+                <element signature="e#1708#2098#0" />
+                <element signature="e#1843#1915#0" />
+                <element signature="e#1962#2031#0" />
+                <element signature="e#3222#3244#0" />
+                <element signature="e#3378#3446#1" />
+                <element signature="e#3488#3666#0" />
+                <element signature="e#3769#5313#0" />
+                <element signature="e#4292#4805#0" />
+                <element signature="e#4560#4615#0" />
+                <element signature="e#4749#4805#0" />
+                <element signature="e#4825#5204#0" />
+                <element signature="e#5358#5434#0" />
+                <element signature="e#5478#6701#0" />
+                <element signature="e#5823#6552#0" />
+                <element signature="e#6130#6320#0" />
+                <element signature="e#6750#8086#0" />
+                <element signature="e#7363#7445#0" />
+                <element signature="e#7663#7754#0" />
+                <element signature="e#7854#7954#0" />
+                <element signature="e#8121#8167#0" />
+                <element signature="e#8197#8241#0" />
+                <element signature="e#8275#8323#0" />
+                <element signature="e#8354#8399#0" />
+                <element signature="e#8401#8405#0" />
+                <element signature="e#8492#10879#0" />
+                <element signature="e#8592#10879#0" />
+                <element signature="e#8923#8930#0" />
+                <element signature="e#9022#9045#0" />
+                <element signature="e#9163#10815#0" />
+                <element signature="e#9469#10815#0" />
+                <element signature="e#9469#9506#0" />
+                <element signature="e#9854#10235#1" />
+                <element signature="e#10252#10297#0" />
+                <element signature="e#10567#10650#0" />
+                <element signature="e#10714#10794#0" />
+                <element signature="e#10912#12655#0" />
+                <element signature="e#11015#12655#0" />
+                <element signature="e#11518#11529#0" />
+                <element signature="e#11916#11939#0" />
+                <element signature="e#12057#12596#0" />
+                <element signature="e#12248#12283#0" />
+                <element signature="e#12442#12532#0" />
+                <element signature="e#12685#13217#0" />
+                <element signature="e#12685#12710#0" />
+                <element signature="e#12934#12965#0" />
+                <element signature="e#13251#13554#0" />
+                <element signature="e#13277#13295#0" />
+                <element signature="e#13584#13714#0" />
+                <element signature="e#13617#13647#0" />
+                <element signature="e#13717#13733#1" />
+                <element signature="e#13761#14655#0" />
+                <element signature="e#13959#13966#0" />
+                <element signature="e#14378#14484#0" />
+                <element signature="e#14490#14501#0" />
+                <element signature="e#14698#15215#0" />
+                <element signature="e#15270#16860#0" />
+                <element signature="e#15306#15549#0" />
+                <element signature="e#15362#15408#0" />
+                <element signature="e#15776#15865#0" />
+                <element signature="e#15899#15988#0" />
+                <element signature="e#16177#16724#0" />
+                <element signature="e#16244#16564#0" />
+                <element signature="e#16402#16510#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="candidates" pinned="false" current-in-tab="false">
+        <entry file="das://6de7dfa4-0fe1-4cfd-afd7-6faf17efc222/schema/mysites/table/candidates">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/SitesApp/home.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1530">
+              <caret line="51" column="65" selection-start-line="51" selection-start-column="34" selection-end-line="51" selection-end-column="65" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DBUtils.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utils/DBUtils.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2910">
+              <caret line="97" column="12" selection-start-line="97" selection-end-line="97" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="grade.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/SitesApp/grade.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1680">
+              <caret line="188" column="38" selection-start-line="188" selection-start-column="32" selection-end-line="188" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SitesApp/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1440">
+              <caret line="64" column="9" selection-start-line="64" selection-start-column="4" selection-end-line="64" selection-end-column="9" />
+              <folding>
+                <element signature="e#29#30#0" />
+                <element signature="e#109#110#0" />
+                <element signature="e#1375#1392#0" />
+                <element signature="e#1409#1437#0" />
+                <element signature="e#1758#1775#0" />
+                <element signature="e#1792#1823#0" />
+                <element signature="e#2733#2750#0" />
+                <element signature="e#2767#2840#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="vote.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/SitesApp/vote.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5610">
+              <caret line="187" column="36" selection-start-line="187" selection-start-column="36" selection-end-line="187" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Setup Script" />
+        <option value="HTML File" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>一对一</find>
+      <find>轮数</find>
+      <find>1</find>
+      <find>voteTypes</find>
+      <find>reverse</find>
+      <find>投</find>
+      <find>uicon</find>
+      <find>app:blogs</find>
+      <find>widthratio</find>
+      <find>alert</find>
+      <find>HttpResponse</find>
+      <find>page.object_list</find>
+      <find>addVote</find>
+      <find>condidate</find>
+      <find>cid</find>
+      <find>imgs</find>
+      <find>123</find>
+      <find>sys.path.insert(0, os.path.join(BASE_DIR, ''))</find>
+      <find>VoteRecord</find>
+      <find>add</find>
+      <find>models</find>
+      <find>models.User</find>
+      <find>save</find>
+      <find>_meta</find>
+      <find>query</find>
+      <find>编程</find>
+      <find>addGrade</find>
+      <find>grade</find>
+      <find>Manager</find>
+      <find>userClickCount</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>ForeignKey</replace>
+      <replace>http://www.manmankan.com/dy2013/mingxing/</replace>
+      <replace>一对多</replace>
+      <replace>site</replace>
+      <replace>sitesApp:vote</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/templates/vote.html" />
+        <option value="$PROJECT_DIR$/templates/review.html" />
+        <option value="$PROJECT_DIR$/templates/blog.html" />
+        <option value="$PROJECT_DIR$/templates/dataBank.html" />
+        <option value="$PROJECT_DIR$/templates/forum.html" />
+        <option value="$PROJECT_DIR$/templates/Login.html" />
+        <option value="$PROJECT_DIR$/templates/注册.html" />
+        <option value="$PROJECT_DIR$/templates/shareNav.html" />
+        <option value="$PROJECT_DIR$/static/css/reset.css" />
+        <option value="$PROJECT_DIR$/templates/base.html" />
+        <option value="$PROJECT_DIR$/static/css/sitesAppCss.css" />
+        <option value="$PROJECT_DIR$/templates/home.html" />
+        <option value="$PROJECT_DIR$/templates/test.html" />
+        <option value="$PROJECT_DIR$/templates/SitesApp/shareNav.html" />
+        <option value="$PROJECT_DIR$/utils/__init__.py" />
+        <option value="$PROJECT_DIR$/SitesApp/migrations/__init__.py" />
+        <option value="$PROJECT_DIR$/MySites/__init__.py" />
+        <option value="$PROJECT_DIR$/SitesApp/__init__.py" />
+        <option value="$PROJECT_DIR$/middleware/MyMiddleware.py" />
+        <option value="$PROJECT_DIR$/static/SitesApp/css/reset.css" />
+        <option value="$PROJECT_DIR$/static/SitesApp/js/grade.js" />
+        <option value="$PROJECT_DIR$/templates/SitesApp/mine.html" />
+        <option value="$PROJECT_DIR$/templates/SitesApp/login.html" />
+        <option value="dbtable:/e2b3f521/6de7dfa4-0fe1-4cfd-afd7-6faf17efc222/mysites.candidates" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/6de7dfa4-0fe1-4cfd-afd7-6faf17efc222/console.sql" />
+        <option value="$PROJECT_DIR$/utils/utils.py" />
+        <option value="$PROJECT_DIR$/SitesApp/admin.py" />
+        <option value="$PROJECT_DIR$/MySites/urls.py" />
+        <option value="$PROJECT_DIR$/static/SitesApp/js/jquery.min.js" />
+        <option value="$PROJECT_DIR$/static/SitesApp/js/bootstrap-select.min.js" />
+        <option value="$PROJECT_DIR$/static/SitesApp/js/defaults-zh_CN.min.js" />
+        <option value="$PROJECT_DIR$/static/SitesApp/css/bootstrap-select.min.css" />
+        <option value="$PROJECT_DIR$/templates/SitesApp/addCondidate.html" />
+        <option value="$PROJECT_DIR$/static/SitesApp/js/swiper.min.js" />
+        <option value="$PROJECT_DIR$/static/SitesApp/js/swiper.jquery.min.js" />
+        <option value="$PROJECT_DIR$/templates/SitesApp/test.html" />
+        <option value="$PROJECT_DIR$/static/SitesApp/css/sitesAppCss.css" />
+        <option value="$PROJECT_DIR$/templates/SitesApp/base.html" />
+        <option value="$PROJECT_DIR$/templates/SitesApp/register.html" />
+        <option value="$PROJECT_DIR$/说明文档" />
+        <option value="$PROJECT_DIR$/SitesApp/DBUtils/__init__.py" />
+        <option value="$PROJECT_DIR$/SitesApp/models.py" />
+        <option value="$PROJECT_DIR$/SitesApp/tests.py" />
+        <option value="$PROJECT_DIR$/SitesApp/DBUtils.py" />
+        <option value="$PROJECT_DIR$/SitesApp/urls.py" />
+        <option value="$PROJECT_DIR$/utils/DBUtils.py" />
+        <option value="$PROJECT_DIR$/MySites/settings.py" />
+        <option value="$PROJECT_DIR$/templates/SitesApp/home.html" />
+        <option value="$PROJECT_DIR$/SitesApp/views.py" />
+        <option value="$PROJECT_DIR$/templates/SitesApp/vote.html" />
+        <option value="$PROJECT_DIR$/templates/SitesApp/grade.html" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="754" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="MySites" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MySites" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MySites" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MySites" type="462c0819:PsiDirectoryNode" />
+              <item name="MySites" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MySites" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MySites" type="462c0819:PsiDirectoryNode" />
+              <item name="SitesApp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MySites" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MySites" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MySites" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MySites" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="SitesApp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MySites" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MySites" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="SitesApp" type="462c0819:PsiDirectoryNode" />
+              <item name="imgs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MySites" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MySites" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="uploads" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MySites" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MySites" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MySites" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MySites" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="SitesApp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MySites" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MySites" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SearchEverywhereHistoryKey" value="run manage.py task&#9;null&#9;null" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL&#10;Sqlite (Xerial)" />
+    <property name="database.console.LAST_STATE" value="false" />
+    <property name="full.screen.before.presentation.mode" value="false" />
+    <property name="js.eslint.eslintPackage" value="" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Learn\python\Django\MySites\SitesApp" />
+      <recent name="D:\Learn\python\Django\MySites\utils" />
+      <recent name="D:\Learn\python\Django\MySites\static\SitesApp" />
+      <recent name="D:\Learn\python\MySites\static" />
+      <recent name="D:\Learn\python\Django\MySites\static\SitesApp\imgs\language" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Learn\python\Django\MySites\static\SitesApp\imgs\language" />
+      <recent name="D:\Learn\python\Django\MySites\utils" />
+      <recent name="D:\Learn\python\Django\MySites\static\SitesApp\fonts" />
+      <recent name="D:\Learn\python\Django\MySites\static\SitesApp\css" />
+      <recent name="D:\Learn\python\Django\MySites\static\SitesApp\js" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.DBUtils (2)">
+    <configuration name="DBUtils (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="MySites" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/SitesApp" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SitesApp/DBUtils.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="DBUtils (2)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="MySites" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/utils" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/utils/DBUtils.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="DBUtils" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="MySites" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/utils" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="D:\Learn\python\Django\MySites\SitesApp\DBUtils.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="tests" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="MySites" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/SitesApp" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SitesApp/tests.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="utils" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="MySites" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/utils" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/utils/utils.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="MySites" type="Python.DjangoServer" factoryName="Django server">
+      <module name="MySites" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Attests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="MySites" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+    </configuration>
+    <list>
+      <item itemvalue="Django server.MySites" />
+      <item itemvalue="Python.tests" />
+      <item itemvalue="Python.utils" />
+      <item itemvalue="Python.DBUtils" />
+      <item itemvalue="Python.DBUtils (1)" />
+      <item itemvalue="Python.DBUtils (2)" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.DBUtils (2)" />
+        <item itemvalue="Python.DBUtils (1)" />
+        <item itemvalue="Python.DBUtils" />
+        <item itemvalue="Python.tests" />
+        <item itemvalue="Python.utils" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4d02e457-59db-4ed4-b1a8-0d0ec7fdb78e" name="Default" comment="" />
+      <created>1527852144304</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1528513366000</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="0" width="1382" height="754" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32954547" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" order="7" weight="0.32954547" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.45941558" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Python Console" order="8" weight="0.32954547" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.36585367" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4984985" visible="true" weight="0.26096824" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="right" id="Database" order="4" weight="0.32980332" />
+      <window_info anchor="right" id="SciView" order="3" />
+      <window_info id="Structure" order="2" sideWeight="0.5015015" side_tool="true" weight="0.25718608" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="1" sideWeight="0.4984985" side_tool="true" weight="0.25718608" />
+      <window_info anchor="bottom" id="manage.py@MySites" order="7" weight="0.36201298" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Database Console" order="9" weight="0.32954547" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32954547" />
+    </layout>
+    <layout-to-restore>
+      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Database Console" order="0" weight="0.32954547" />
+      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.45941558" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info id="Favorites" order="1" sideWeight="0.4984985" weight="0.25718608" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4984985" visible="true" weight="0.25718608" />
+      <window_info id="Structure" order="2" sideWeight="0.5015015" weight="0.25718608" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="TODO" order="7" weight="0.32954547" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
+      <window_info anchor="right" id="Database" order="4" weight="0.32980332" />
+      <window_info anchor="bottom" id="manage.py@MySites" order="8" weight="0.36201298" />
+      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" order="10" weight="0.32954547" />
+      <window_info anchor="bottom" id="Version Control" order="13" show_stripe_button="false" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="SciView" order="3" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.32954547" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.36688313" />
+      <window_info anchor="bottom" id="Python Console" order="14" weight="0.32954547" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="6" />
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/MySites/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5010">
+          <caret line="167" column="39" selection-start-line="167" selection-start-column="21" selection-end-line="167" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/SitesApp/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SitesApp/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2970">
+          <caret line="99" column="12" selection-start-line="99" selection-start-column="4" selection-end-line="99" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SitesApp/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="14" column="33" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/SitesApp/vote.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3900">
+          <caret line="130" column="21" selection-start-line="130" selection-start-column="21" selection-end-line="130" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MySites/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5010">
+          <caret line="167" column="39" selection-start-line="167" selection-start-column="21" selection-end-line="167" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/e2b3f521/ff9c50af-547f-4d14-8b63-b55658758163/mysites.candidates" />
+    <entry file="file://$PROJECT_DIR$/../../venv/MySitesVenv/Lib/site-packages/django/contrib/admin/templates/admin/base.html" />
+    <entry file="file://$PROJECT_DIR$/../../venv/MySitesVenv/Lib/site-packages/django/contrib/admin/sites.py" />
+    <entry file="file://$PROJECT_DIR$/static/SitesApp/css/reset.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/6de7dfa4-0fe1-4cfd-afd7-6faf17efc222/console.sql" />
+    <entry file="dbDummy://dbtable:/e2b3f521/6de7dfa4-0fe1-4cfd-afd7-6faf17efc222/mysites.users" />
+    <entry file="dbDummy://dbtable:/e2b3f521/6de7dfa4-0fe1-4cfd-afd7-6faf17efc222/mysites.chatrecords" />
+    <entry file="file://$PROJECT_DIR$/SitesApp/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="53" selection-start-line="53" selection-end-line="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../venv/MySitesVenv/Lib/site-packages/django/http/response.py" />
+    <entry file="dbDummy://dbtable:/e2b3f521/6de7dfa4-0fe1-4cfd-afd7-6faf17efc222/mysites.candidates" />
+    <entry file="file://$PROJECT_DIR$/MySites/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="810">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/SitesApp/js/jquery.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="4" column="1179" selection-start-line="4" selection-start-column="1179" selection-end-line="4" selection-end-column="1179" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/SitesApp/js/bootstrap-select.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="8" column="44" selection-start-line="8" selection-start-column="44" selection-end-line="8" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/SitesApp/js/defaults-zh_CN.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="6" column="456" selection-start-line="6" selection-start-column="456" selection-end-line="6" selection-end-column="456" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/SitesApp/css/bootstrap-select.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="5" column="6433" selection-start-line="5" selection-start-column="6433" selection-end-line="5" selection-end-column="6433" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/SitesApp/addCondidate.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/SitesApp/js/swiper.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="18" column="43" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/SitesApp/js/swiper.jquery.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="17" column="50" selection-start-line="17" selection-start-column="50" selection-end-line="17" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/SitesApp/blog.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/SitesApp/review.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="5" lean-forward="true" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/SitesApp/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2018">
+          <caret line="189" column="22" lean-forward="true" selection-start-line="189" selection-start-column="22" selection-end-line="189" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/SitesApp/css/sitesAppCss.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="33" column="20" lean-forward="true" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/e2b3f521/6de7dfa4-0fe1-4cfd-afd7-6faf17efc222/mysites.votetype" />
+    <entry file="dbDummy://dbtable:/e2b3f521/6de7dfa4-0fe1-4cfd-afd7-6faf17efc222/mysites.voterecords" />
+    <entry file="dbDummy://dbtable:/e2b3f521/6de7dfa4-0fe1-4cfd-afd7-6faf17efc222/mysites.candidates" />
+    <entry file="file://$PROJECT_DIR$/templates/SitesApp/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="810">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/SitesApp/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="33" column="11" lean-forward="true" selection-start-line="7" selection-start-column="4" selection-end-line="33" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/SitesApp/mine.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="13" column="86" selection-start-line="13" selection-start-column="67" selection-end-line="13" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/SitesApp/register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2100">
+          <caret line="70" selection-start-line="70" selection-end-line="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/说明文档">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1620">
+          <caret line="54" selection-start-line="54" selection-end-line="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SitesApp/DBUtils/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/django/db/models/query.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="828" selection-start-line="824" selection-end-line="828" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SitesApp/DBUtils.py" />
+    <entry file="das://6de7dfa4-0fe1-4cfd-afd7-6faf17efc222/schema/mysites/table/voterecords">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SitesApp/tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="142" column="32" lean-forward="true" selection-start-line="142" selection-start-column="32" selection-end-line="142" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MySites/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="188" column="8" selection-start-line="188" selection-end-line="188" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SitesApp/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/DBUtils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2910">
+          <caret line="97" column="12" selection-start-line="97" selection-end-line="97" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SitesApp/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1440">
+          <caret line="64" column="9" selection-start-line="64" selection-start-column="4" selection-end-line="64" selection-end-column="9" />
+          <folding>
+            <element signature="e#29#30#0" />
+            <element signature="e#109#110#0" />
+            <element signature="e#1375#1392#0" />
+            <element signature="e#1409#1437#0" />
+            <element signature="e#1758#1775#0" />
+            <element signature="e#1792#1823#0" />
+            <element signature="e#2733#2750#0" />
+            <element signature="e#2767#2840#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://6de7dfa4-0fe1-4cfd-afd7-6faf17efc222/schema/mysites/table/candidates">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/SitesApp/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1530">
+          <caret line="51" column="65" selection-start-line="51" selection-start-column="34" selection-end-line="51" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/SitesApp/vote.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5610">
+          <caret line="187" column="36" selection-start-line="187" selection-start-column="36" selection-end-line="187" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/SitesApp/grade.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1680">
+          <caret line="188" column="38" selection-start-line="188" selection-start-column="32" selection-end-line="188" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SitesApp/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-180">
+          <caret line="98" column="32" lean-forward="true" selection-start-line="98" selection-start-column="32" selection-end-line="98" selection-end-column="32" />
+          <folding>
+            <element signature="e#824#1088#0" />
+            <element signature="e#914#1072#0" />
+            <element signature="e#1123#1502#0" />
+            <element signature="e#1541#1599#0" />
+            <element signature="e#1600#1604#0" />
+            <element signature="e#1708#2098#0" />
+            <element signature="e#1843#1915#0" />
+            <element signature="e#1962#2031#0" />
+            <element signature="e#3222#3244#0" />
+            <element signature="e#3378#3446#1" />
+            <element signature="e#3488#3666#0" />
+            <element signature="e#3769#5313#0" />
+            <element signature="e#4292#4805#0" />
+            <element signature="e#4560#4615#0" />
+            <element signature="e#4749#4805#0" />
+            <element signature="e#4825#5204#0" />
+            <element signature="e#5358#5434#0" />
+            <element signature="e#5478#6701#0" />
+            <element signature="e#5823#6552#0" />
+            <element signature="e#6130#6320#0" />
+            <element signature="e#6750#8086#0" />
+            <element signature="e#7363#7445#0" />
+            <element signature="e#7663#7754#0" />
+            <element signature="e#7854#7954#0" />
+            <element signature="e#8121#8167#0" />
+            <element signature="e#8197#8241#0" />
+            <element signature="e#8275#8323#0" />
+            <element signature="e#8354#8399#0" />
+            <element signature="e#8401#8405#0" />
+            <element signature="e#8492#10879#0" />
+            <element signature="e#8592#10879#0" />
+            <element signature="e#8923#8930#0" />
+            <element signature="e#9022#9045#0" />
+            <element signature="e#9163#10815#0" />
+            <element signature="e#9469#10815#0" />
+            <element signature="e#9469#9506#0" />
+            <element signature="e#9854#10235#1" />
+            <element signature="e#10252#10297#0" />
+            <element signature="e#10567#10650#0" />
+            <element signature="e#10714#10794#0" />
+            <element signature="e#10912#12655#0" />
+            <element signature="e#11015#12655#0" />
+            <element signature="e#11518#11529#0" />
+            <element signature="e#11916#11939#0" />
+            <element signature="e#12057#12596#0" />
+            <element signature="e#12248#12283#0" />
+            <element signature="e#12442#12532#0" />
+            <element signature="e#12685#13217#0" />
+            <element signature="e#12685#12710#0" />
+            <element signature="e#12934#12965#0" />
+            <element signature="e#13251#13554#0" />
+            <element signature="e#13277#13295#0" />
+            <element signature="e#13584#13714#0" />
+            <element signature="e#13617#13647#0" />
+            <element signature="e#13717#13733#1" />
+            <element signature="e#13761#14655#0" />
+            <element signature="e#13959#13966#0" />
+            <element signature="e#14378#14484#0" />
+            <element signature="e#14490#14501#0" />
+            <element signature="e#14698#15215#0" />
+            <element signature="e#15270#16860#0" />
+            <element signature="e#15306#15549#0" />
+            <element signature="e#15362#15408#0" />
+            <element signature="e#15776#15865#0" />
+            <element signature="e#15899#15988#0" />
+            <element signature="e#16177#16724#0" />
+            <element signature="e#16244#16564#0" />
+            <element signature="e#16402#16510#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

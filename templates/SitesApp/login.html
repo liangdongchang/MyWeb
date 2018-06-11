@@ -1,0 +1,80 @@
+{% extends 'SitesApp/base.html' %}
+
+{% block title %}
+    <title>登录</title>
+{% endblock %}
+{% block content %}
+    {#   文件上传、验证码、密码加密、会话技术#}
+    <form id="formLogin" method="post" action="{% url 'sitesApp:login' %}"
+          onkeydown="if(event.keyCode==13) return focusNextInput(this);">
+        {% csrf_token %}
+        <div class="login">
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">用户名</span>
+                <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1"
+                       name="uname" onkeyup="if(event.keyCode==13) focusNextInput(this);">
+            </div>
+
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">密&nbsp;&nbsp;&nbsp;&nbsp;码</span>
+                <input type="password" class="form-control" placeholder="Password" aria-describedby="basic-addon1"
+                       name="upwd" onkeyup="if(event.keyCode==13) focusNextInput(this);">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">验证码</span>
+                <input type="text" class="form-control" placeholder="Auth code" aria-describedby="basic-addon1"
+                       name="vcode" onkeyup="if(event.keyCode==13) focusNextInput(this);">
+            </div>
+            <div class="vcode">
+                <img src="/app/getvcode/" id="vcode">
+            </div>
+            <input id="submit" type="submit" class="loginBtn" value="登  录">
+
+        </div>
+    </form>
+{% endblock %}
+{% block script %}
+    <script src="/static/SitesApp/js/jquery-form.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            {#            验证码点击时生成随机的路由请求#}
+            $('#vcode').click(function () {
+                $(this).attr('src', "/app/getvcode" + Math.random())
+            })
+        });
+        {#        表单提交后，处理服务器返回的数据#}
+        $(document).ready(function () {
+            $("#formLogin").ajaxForm(function (data) {
+                {#                 alert("post success." + data);#}
+                data = $.parseJSON(data);
+                if (data['status'] == '1') {
+                    {#                        alert('登录成功');#}
+                    {#          跳转到我的主页           #}
+                    window.location.href = "{% url 'sitesApp:mine' %}";
+                } else {
+                    alert(data['ret']);
+                }
+            });
+        });
+        //jQuery实现在一个输入框按回车键后光标跳到下一个输入框
+        function focusNextInput(thisInput) {
+            var inputs = document.getElementsByTagName("input");
+
+
+            for (var i = 0; i < inputs.length; i++) {
+                // 如果是最后一个，则焦点回到第一个
+
+                if (i == (inputs.length - 1)) {
+                    inputs[0].focus();
+                    break;
+                } else if (thisInput == inputs[i]) {
+                    inputs[i + 1].focus();
+                    break;
+                }
+            }
+            return false;
+        }
+
+    </script>
+
+{% endblock %}

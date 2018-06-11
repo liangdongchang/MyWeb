@@ -1,0 +1,199 @@
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>Title</title>#}
+{#</head>#}
+{#<body>#}
+{#输出META信息#}
+{#<ul>#}
+{#    {% for k,v in dictData.items %}#}
+{#        <li>{{ forloop.counter }} &nbsp;{{ k }}={{ v }}</li>#}
+{#    {% endfor %}#}
+{##}
+{#</ul>#}
+{##}
+{#<form id="form1" name="form1" method="post" action="" enctype="multipart/form-data">#}
+{#    <p><input name="userfile" id="userfile" type="file" onchange="check()"/></p>#}
+{##}
+{##}
+{#</form>#}
+{##}
+{##}
+{#<script language="javascript" type="text/javascript">#}
+{#    function check() {#}
+{#        var aa = document.getElementById("userfile").value.toLowerCase().split('.');//以“.”分隔上传文件字符串#}
+{#        // var aa=document.form1.userfile.value.toLowerCase().split('.');//以“.”分隔上传文件字符串#}
+{##}
+{#        if (document.form1.userfile.value == "") {#}
+{#            alert('图片不能为空！');#}
+{#            return false;#}
+{#        }#}
+{#        else {#}
+{#            if (aa[aa.length - 1] == 'gif' || aa[aa.length - 1] == 'jpg' || aa[aa.length - 1] == 'bmp'#}
+{##}
+{#                || aa[aa.length - 1] == 'png' || aa[aa.length - 1] == 'jpeg')//判断图片格式#}
+{#            {#}
+{#                var imagSize = document.getElementById("userfile").files[0].size;#}
+{#                alert("图片大小：" + imagSize + "B");#}
+{#                if (imagSize < 1024 * 1024 * 3){#}
+{#                 if (imagSize < 1024 * 1024 * 3){#}
+{#                     return true;#}
+{#                }#}
+{#                    alert("图片大小在3M以内，为：" + imagSize / (1024 * 1024) + "M");#}
+{##}
+{#            }#}
+{#            else {#}
+{#                alert('请选择格式为*.jpg、*.gif、*.bmp、*.png、*.jpeg 的图片');#}
+{#            }#}
+{#            var obj=document.getElementById('userfile');#}
+{#            obj.outerHTML= obj.outerHTML;#}
+{#        }#}
+{#    }#}
+{#</script>#}
+{##}
+{#</body>#}
+{#</html>#}
+
+
+{#<!DOCTYPE html>#}
+{#<html>#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8">#}
+{#<title>Bootstrap Select</title>#}
+{#<link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">#}
+{#<link href="https://cdn.bootcss.com/bootstrap-select/1.12.4/css/bootstrap-select.min.css" rel="stylesheet">#}
+{#</head>#}
+{#<body>#}
+{#    <div class="container">#}
+{#        <div class="row clearfix">#}
+{#            <div class="col-md-12 column">#}
+{#                <div class="page-header">#}
+{#                    <h1>Bootstrap Select <small>下拉框</small></h1>#}
+{#                </div>#}
+{#                <h3>基本select插件效果</h3>#}
+{#                <p>为下拉框添加插件支持 ， <span class="label label-success">class="selectpicker"</span></p>#}
+{#                <div class="form-group">#}
+{#                    <select class="selectpicker">#}
+{#                        <option>A</option>#}
+{#                        <option>B</option>#}
+{#                        <option>C</option>#}
+{#                    </select>#}
+{#                </div>#}
+{##}
+{#                <hr>#}
+{#                <h3>单选模式示例</h3>#}
+{#                <p><span class="label label-success">class="selectpicker show-tick"</span> ， 选中项内容后添加" √ "小图标</p>#}
+{#                <p><span class="label label-success">title="请选择一项"</span> ， 未设置默认选项并未选择时 ， 组件框中的提示内容</p>#}
+{#                <p><span class="label label-success">data-live-search="true"</span> ， 为组件添加查询功能 </p>#}
+{#                <p><span class="label label-success">data-size="5"</span> ， 设置下拉长度 </p>#}
+{#                <div class="form-group">#}
+{#                    <select class="selectpicker show-tick" title="请选择一项" data-live-search="true" data-size="5">#}
+{#                        <option>A</option>#}
+{#                        <option>B</option>#}
+{#                        <option>C</option>#}
+{#                        <option>D</option>#}
+{#                        <option>E</option>#}
+{#                        <option>B</option>#}
+{#                        <option>C</option>#}
+{#                    </select>#}
+{#                </div>#}
+{##}
+{#                <hr>#}
+{#                <h3>多选模式示例</h3>#}
+{#                <p><span class="label label-success">title="请选择一项"</span> ， 未设置默认选项并未选择时 ， 组件框中的提示内容</p>#}
+{#                <p><span class="label label-success">data-live-search="true"</span> ， 为组件添加查询功能 </p>#}
+{#                <p><span class="label label-success">data-size="5"</span> ， 设置下拉长度 </p>#}
+{#                <p><span class="label label-success">multiple</span> ， 添加可多选支持 </p>#}
+{#                <p><span class="label label-success">data-max-options="2"</span> ， 设置最多可选个数 </p>#}
+{#                <p>该属性在设置<span class="label label-success">data-max-options="2"</span>后 ， 建议不使用<span class="label label-default">data-actions-box="true"</span> ， 该属性是添加"选择所有"和"全部取消选择"按钮</p>#}
+{#                <div class="form-group">#}
+{#                    <select class="selectpicker" title="请选择一项" data-live-search="true" data-size="5" multiple data-max-options="2">#}
+{#                        <option>A</option>#}
+{#                        <option>B</option>#}
+{#                        <option>C</option>#}
+{#                        <option>D</option>#}
+{#                        <option>E</option>#}
+{#                        <option>B</option>#}
+{#                        <option>C</option>#}
+{#                    </select>#}
+{#                </div>#}
+{##}
+{#                <hr>#}
+{#                <h3>分组选项示例</h3>#}
+{#                <p>使用optgroup标签将选项分为一组， 下面介绍optgroup标签属性</p>#}
+{#                <p><span class="label label-success">label="分组名"</span> ， 为分组添加名称 </p>#}
+{#                <p><span class="label label-success">data-subtext="追加内容"</span> ， 为分组追加名称 </p>#}
+{#                <div class="form-group">#}
+{#                    <select class="selectpicker" title="请选择" >#}
+{#                        <optgroup label="AB选项组" data-subtext="ab">#}
+{#                            <option>A</option>#}
+{#                        <option>B</option>#}
+{#                    </optgroup>#}
+{#                    <optgroup label="CD选项组" data-subtext="ab">#}
+{#                        <option>C</option>#}
+{#                        <option>D</option>#}
+{#                        </optgroup>#}
+{#                    </select>#}
+{#                </div>#}
+{#                <h3>选项标签中属性介绍示例1</h3>#}
+{#                <p><span class="label label-success">title="代称"</span> ， 改变选项在组件框中显示内容， 相当于选项的代称</p>#}
+{#                <p><span class="label label-success">selected</span> ， 默认选中</p>#}
+{#                <p><span class="label label-default">data-icon="图标代码"</span>为选项前面添加小图标， 如果没设置#}
+{#                    <span class="label label-success">title="代称"</span>属性， 那么小图标随选项内容一起显示在组件框中#}
+{#                </p>#}
+{#                <p><span class="label label-success">data-subtext="提示文字"</span> ， 在选项内容后添加提示(淡灰色小2号字体)文字</p>#}
+{#                <div class="form-group">#}
+{#                    <select class="selectpicker" >#}
+{#                        <option title="A类型" data-icon="fa fa-file" data-subtext="a项" >A类型选项</option>#}
+{#                        <option title="B类型" data-icon="fa fa-file" selected>B类型选项</option>#}
+{#                        <option title="C类型" data-icon="fa fa-file">C类型选项</option>#}
+{#                    </select>#}
+{#                </div>#}
+{#                <h3>选项标签中属性介绍示例2</h3>#}
+{#                <p><span class="label label-default">data-content="html代码"</span> ， 使用该属性中的代码片段替换该选项的内容， 以及选中后在组件框中显示的也是该html代码</p>#}
+{#                <p>如果感觉显示在组件代码框中的内容不好 ， 使用<span class="label label-success">title="代称"</span> ， 改变选项在组件框中显示内容， 相当于选项的代称</p>#}
+{#                <div class="form-group">#}
+{#                    <select class="selectpicker" >#}
+{#                        <option data-content="<span class='label label-success'>A选项</span>">A选项</option>#}
+{#                        <option data-content="<span class='label label-success'>B选项</span>">B选项</option>#}
+{#                        <option data-content="<span class='label label-success'>C选项</span>">C选项</option>#}
+{#                    </select>#}
+{#                </div>#}
+{##}
+{#                <hr>#}
+{#                <h3>其他属性介绍</h3>#}
+{#                <p><span class="label label-success">disabled</span> ， 该属性设置在组件select标签中为禁用组件 ; 设置在分组标签(optgroup)中禁选该组 ; 设置在选项标签(option)中禁选该项。</p>#}
+{#                <p><span class="label label-default">data-divider="true"</span> ， 在选项与下一选项中间添加分割线。</p>#}
+{#                <hr>#}
+{#                <h3>Core options(核心选项)</h3>#}
+{#                <p>核心选项也就是一些属性，重要的属性已经在上面介绍完了</p>#}
+{#                <p>写法：data-选项名称:对应值，组合成属性</p>#}
+{##}
+{#                <hr>#}
+{#                <h3>核心方法</h3>#}
+{#                <p>$('#selectID').selectpicker('selectAll'); // 当为多选下拉框时 ，执行全部选中</p>#}
+{#                <p>$('#selectID').selectpicker('deselectAll'); // 当为多选下拉框时 ，执行全部取消选中</p>#}
+{#                <p>$('#selectID').selectpicker('refresh'); // 当你删除或者添加选项时 ，刷新代码</p>#}
+{#                <p>$('#selectID').selectpicker('hide'); // 隐藏下拉框</p>#}
+{#                <p>$('#selectID').selectpicker('show'); // 显示下拉框</p>#}
+{##}
+{#                <hr>#}
+{#                <h3>核心事件</h3>#}
+{#                <p>$('#selectID').on('show.bs.select', function (e) {}); // 当点击下拉框时，选项项窗体即将显示触发</p>#}
+{#                <p>$('#selectID').on('shown.bs.select', function (e) {}); // 当点击下拉框时，选项项窗体显示触发</p>#}
+{#                <p>$('#selectID').on('hide.bs.select', function (e) {}); // 当点击下拉框时，选项项窗体即将隐藏触发</p>#}
+{#                <p>$('#selectID').on('hidden.bs.select', function (e) {}); // 当点击下拉框时，选项项窗体隐藏触发</p>#}
+{#                <p>$('#selectID').on('loaded.bs.select', function (e) {}); // 当下拉框被初始化后触发</p>#}
+{#                <p>$('#selectID').on('refreshed.bs.select', function (e) {}); // 当刷新方法(也就是执行该方法.selectpicker('refresh'))下拉框时触发</p>#}
+{#                <p>$('#selectID').on('changed.bs.select', function (e) {}); // 当值被改变时触发</p>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#    <script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>#}
+{#    <script src="https://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>#}
+{#    <script src="https://cdn.bootcss.com/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>#}
+{#    <script src="https://cdn.bootcss.com/bootstrap-select/1.12.4/js/i18n/defaults-zh_CN.min.js"></script>#}
+{##}
+{#</body>#}
+{#</html>#}

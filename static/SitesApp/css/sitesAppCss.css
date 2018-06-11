@@ -1,0 +1,94 @@
+
+.header {
+            height: 43px;
+            background-color: black;
+            left: 0;
+            top: 0;
+            padding: 0 0 0 29%;
+        }
+        .time {
+            height: 43px;
+            top: 43px;
+            left: 0;
+        }
+        .time span{
+            display: block;
+            margin: 10px;
+        }
+        /*.header ul {*/
+            /*list-style: none;*/
+        /*}*/
+        /*.header ul li{*/
+            /*list-style: none;*/
+            /*float: left;*/
+            /*margin: 0 10px;*/
+            /*text-align: center;*/
+
+        /*}*/
+        .header ul li a{
+            color: #DEB887;
+            font-size: 16px;
+            display: inline-block;
+            height: 40px;
+        }
+         .header li :hover{
+             color: white;
+
+         }
+        .header , .time , .footer {
+            width: 100%;
+            position: fixed;
+        }
+
+        .content {
+            height: 100%;
+            text-align: center;
+            padding-top: 100px;
+
+        }
+        .content .swiper-container{
+            height: 150px;
+            width: 70%;
+            text-align: center;
+
+        }
+        .content .swiper-container img{
+            height: 120px;
+        }
+        .content .login{
+            margin: 0 auto;
+            padding: 50px 62px;
+            width: 30%;
+            height: 350px;
+            background-color: #DEB887;
+        }
+        .content .login .input-group{
+            margin: 5px 0;
+            padding: 0;
+        }
+
+        .content .login .input-group-addon{
+            width: 90px;
+        }
+         .content .login .vcode{
+             width: 99%;
+             height: 80px;
+             margin-bottom: 10px;
+
+         }
+         .content .login .loginBtn{
+             width: 100px;
+             height: 40px;
+             font-size: 16px;
+             text-align: center;
+
+         }
+        .footer {
+            height: 43px;
+            background-color: black;
+            color: #DEB887;
+            text-align: center;
+            line-height: 43px;
+            bottom: 0;
+            left: 0;
+        }

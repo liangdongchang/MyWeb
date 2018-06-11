@@ -1,0 +1,94 @@
+{% extends 'SitesApp/base.html' %}
+
+{% block title %}
+    <title>注册</title>
+{% endblock %}
+{% block content %}
+    {#   文件上传、验证码、密码加密、会话技术#}
+    {# enctype="multipart/form-data" 上传支持 #}
+    <form id="formLogin" method="post" action="{% url 'sitesApp:register' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="login" style="height: 380px">
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">用户名</span>
+                <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1"
+                       id="uname" name="uname" >
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">昵&nbsp;&nbsp;&nbsp;&nbsp;称</span>
+                <input type="text" class="form-control" placeholder="Nickname" aria-describedby="basic-addon1"
+                       id="unick" name="unick" >
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">密&nbsp;&nbsp;&nbsp;&nbsp;码</span>
+                <input type="password" class="form-control" placeholder="Password" aria-describedby="basic-addon1"
+                       id="upwd" name="upwd" >
+            </div>
+            <div class="input-group">
+                {# 用于上传头像的表单控件 #}
+                <span class="input-group-addon" id="basic-addon1">头&nbsp;&nbsp;&nbsp;&nbsp;像</span>
+                <input type="file" class="form-control" aria-describedby="basic-addon1" style="height: 37px;"
+                       id="uicon" name="uicon" onchange="check()">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">验证码</span>
+                <input type="text" class="form-control" placeholder="Auth code" aria-describedby="basic-addon1"
+                       id="vcod" name="vcode" onchange="check()">
+            </div>
+            <div class="vcode" style="margin: 0;height: 65px;">
+                <img src="/app/getvcode/" id="vcode">
+            </div>
+            <input type="submit" class="loginBtn" value="注  册">
+        </div>
+    </form>
+
+{% endblock %}
+{% block script %}
+    <script src="/static/SitesApp/js/jquery-form.js"></script>
+    <script type="text/javascript">
+        {#    验证码点击事件    #}
+        $(function () {
+            $('#vcode').click(function () {
+                $(this).attr('src', "/app/getvcode" + Math.random())
+            });
+
+        });
+        {#        表单数据提交后对服务器返回的数据进行处理#}
+        $(document).ready(function () {
+            $("#formLogin").ajaxForm(function (data) {
+                {#                 alert("post success." + data['status']);#}
+                if (data['status'] == '1') {
+                    alert('注册成功');
+                    window.location.href = "{% url 'sitesApp:login' %}";
+                } else {
+                    alert("注册失败，请检查输入信息!!!");
+                }
+            });
+        });
+        {#        检查上传的文件是否为图片#}
+        function check() {
+            var icon = document.getElementById("icon").value.toLowerCase().split('.');//以“.”分隔上传文件字符串
+
+            if (icon[icon.length - 1] == 'gif' || icon[icon.length - 1] == 'jpg' || icon[icon.length - 1] == 'bmp'
+                || icon[icon.length - 1] == 'png' || icon[icon.length - 1] == 'jpeg')//判断图片格式
+            {
+                var imagSize = document.getElementById("icon").files[0].size;
+                {#                alert("图片大小：" + imagSize + "B");#}
+                if (imagSize < 1024 * 1024 * 3) {
+                    return true;
+                }
+                alert("图片大小在3M以内，您选中的图片大小为：" + (imagSize / (1024 * 1024)).toFixed(2) + "M");
+
+            }
+            else {
+                alert('请选择格式为*.jpg、*.gif、*.bmp、*.png、*.jpeg 的图片');
+            }
+            {#                文件选择错就把原文件清空#}
+            var obj = document.getElementById('icon');
+            obj.outerHTML = obj.outerHTML;
+
+        }
+        
+    </script>
+
+{% endblock %}

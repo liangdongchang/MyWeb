@@ -1,0 +1,209 @@
+{% extends 'SitesApp/base.html' %}
+
+    {% block title %}
+     <title>投票</title>
+    {% endblock %}
+    {% block style %}
+        <style type="text/css">
+
+        </style>
+    {% endblock %}
+    {% block content %}
+        {% ifequal ip '127.0.0.1'  %}
+                <a href="{% url 'sitesApp:addCandidate' %}" style="color: green;margin: 0 0 10px;display: inline-block">新增候选者</a>
+        {% endifequal %}
+        <div style="width: 800px;margin: 0 auto;">
+            {% for condidate in page.object_list %}
+                <div style="display: inline-block;position: relative;">
+                    <span style="color: red;">{{ condidate.cName }}</span>
+                    <img src="/static/SitesApp/imgs/language/{{ condidate.cIcon }}" style="height: 60px;margin: 0 10px 10px;display: block;" title="{{ condidate.cDeclaration }}">
+                    <button class="vote" condidateId="{{ condidate.id }}" name="{{ condidate.cName }}"  voteCid="{{ condidate.id }}" style="background-color: #95D195;" title="投票"><span class=" glyphicon glyphicon-thumbs-up " ></span></button>
+                    <button class="chat" chatCid="{{ condidate.id }}" title="留言"><span class="glyphicon glyphicon-envelope" title="留言"></span></button>
+                    <br>
+                    票数:<span id="{{ condidate.id }}" class="badge">{{ condidate.cVotes }}</span>
+                </div>
+
+            {% endfor %}
+            <br>
+
+{#            分页器:html内容拷贝于bootstrap网站-组件-分页#}
+{#             bootstrap是一整套成熟经典的页面组件框架#}
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+{#                     上一页按钮#}
+{#                     如果有上一页#}
+                    {% if page.has_previous %}
+                        <li>
+{#                             点击超链接,对上一页的页面发起访问#}
+                            <a href="{% url 'sitesApp:vote' page.previous_page_number %}" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+
+{#                     如果没有上一页#}
+                    {% else %}
+{#                         当没有上一页时,阅读bootrap文档得知,对当前li使用disabled样式#}
+                        <li class="disabled">
+{#                             href="#",处于禁用状态的按钮被点击时直接跳转本页#}
+                            <a href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+
+                        </li>
+                    {% endif %}
+{#                     页码按钮#}
+{#                     遍历传入的页码范围#}
+                    {% for p in pagerange %}
+{#                         如果页码=当前页页码#}
+                        {% ifequal p currentpage %}
+{#                             被选中的页码具有高亮效果,阅读bootrap文档得知,对当前li使用active样式#}
+{#                             {% url 'sitesApp:vote' p %} 点击页码,对第p页的路由发起访问#}
+                            <li class="active"><a href="{% url 'sitesApp:vote' p %}">{{ p }}</a></li>
+                        {% else %}
+{#                             非当前页页码普通显示#}
+                            <li><a href="{% url 'sitesApp:vote' p %}">{{ p }}</a></li>
+                        {% endifequal %}
+                    {% endfor %}
+
+
+{#                     下一页按钮#}
+                    {% if page.has_next %}
+                        <li>
+{#                             点击超链接,对下一页的页面发起访问#}
+                            <a href="{% url 'sitesApp:vote' page.next_page_number %}" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a></li>
+                    {% else %}
+{#                         当没有下一页时,阅读bootrap文档得知,对当前li使用disabled样式#}
+                        <li class="disabled">
+{#                             href="#",处于禁用状态的按钮被点击时直接跳转本页#}
+                            <a href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+
+                        </li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+
+        <div style="height: 280px;width:800px;margin: 0 auto;">
+            <h2 style="height: 20px; width: 100px;margin-bottom: 15px;">留言区</h2>
+            <div id="chat" style="height: 200px; width: 800px;overflow: auto;border: 2px solid black;border-radius: 5px;">
+                <table >
+                    <thead>
+                        <tr class="danger">
+                            <th style="width: 40px;text-align: center;">序号</th>
+                            <th style="width: 80px;text-align: center;">留言时间</th>
+                            <th style="width: 60px;text-align: center;">留言者</th>
+                            <th style="width: 80px;text-align: center;">标题</th>
+                            <th style="width: 550px;text-align: center;">内容</th>
+                        </tr>
+                    </thead>
+                    <tbody >
+                        {% if messages %}
+                            {% for message in messages %}
+                                <tr class="{% cycle 'active' 'success' 'warning' 'info' %}">
+                                    <td> {{ forloop.counter }} </td>
+                                    <td style="width: 150px;">{{ message.crDateTime|date:'Y-m-d H:i' }}</td>
+                                    <td style=" padding: 0 20px;">guest{{ forloop.counter }} </td>
+                                    <td style=" padding: 0 20px;">评价</td>
+                                    <td style=" padding: 0 20px;">{{ message.crInfo }}</td>
+
+                                </tr>
+                            {% endfor %}
+
+                        {% else %}
+                            <tr>
+                                <td colspan="4">无数据</td>
+                            </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+         </div>
+
+
+    {% endblock %}
+    {% block script %}
+        <script type="text/javascript">
+         /*
+
+     $(this)当前被点击的元素
+
+     <a style='color:black;'>你好</a>
+     element.css('color','red')设置元素的CSS样式
+     element.css('color')获取元素的CSS样式
+
+     <a href='xxx'>你好</a>
+     element.attr('href','http://www.baidu.com')设置元素的html属性
+     element.attr('href')获取元素的html
+
+     <a href='xxx'>你好</a>
+     element.html('我好')设置元素的html节点内容
+     element.html()获取元素的html节点内容
+
+     */
+            $(function($){
+                <!--如果用户已经投过票，投票按钮就显示红色-->
+                var isVoteLists = {{ isVoteLists }}
+{#                    console.log(isVoteLists);#}
+                {#如果用户已经点击了就显示红色#}
+                $('*[voteCid]').each(function () {
+                    var voteCid = $(this);
+                    if( $.inArray(parseInt(voteCid.attr('voteCid')), isVoteLists) >= 0){
+                        voteCid.css("background", "#D1191B");
+                    }
+                });
+
+                $('.vote').click(function () {
+                    var voteBtn = $(this);
+                    var cid = voteBtn.attr('voteCid');
+                    var spanGnum = voteBtn.next().next().next();
+                    $.getJSON(
+                        "{% url 'sitesApp:addVote' %}",
+                        {"cid": cid},
+                        function (data) {
+                            console.log(data);
+{#                            投票成功#}
+                            if(data['status'] == 1){
+                                voteBtn.css("background", "#D1191B");
+                            }else if(data['status'] == 2){
+                            {#用户再次点击就显示绿色#}
+                                voteBtn.css("background", "#95D195");
+                            }
+                            spanGnum.html(data['poills'] );
+
+                            window.location.href = '{% url "sitesApp:vote" %}';
+                        }
+                    )
+                });
+
+                $('.chat').click(function () {
+                    var voteBtn = $(this);
+                    var whoId = voteBtn.attr('chatCid');
+                    var judge = prompt(name + "留言区(最多40个字)");
+                    if (judge && judge.length <= 40) {
+                            url = '{% url "sitesApp:chat" %}';
+                            $.ajax({
+                                type:"POST",
+                                url:url,
+                                data:{"cInfo":judge, "whoId":whoId},
+                                dataType:"json",
+                                success: function(res) {
+                                    if(res['status'] == 1){
+                                        window.location.href = '{% url "sitesApp:vote" %}';
+                                    }
+                                }
+                            });
+                        } else {
+                            alert("留言失败");
+                        }
+                });
+
+            });
+        </script>
+
+    {% endblock %}
+
+

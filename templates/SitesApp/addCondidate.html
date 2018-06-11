@@ -1,0 +1,73 @@
+{% extends 'SitesApp/base.html' %}
+
+    {% block title %}
+         <title>新增候选人</title>
+    {% endblock %}
+    {% block link %}
+{#        <link href="https://cdn.bootcss.com/bootstrap-select/1.12.4/css/bootstrap-select.min.css" rel="stylesheet">#}
+    <link href="/static/SitesApp/css/bootstrap-select.min.css" rel="stylesheet">
+
+    {% endblock %}
+    {% block content %}
+        <form method="post" action="{% url 'sitesApp:addCandidate' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div style="width: 300px;margin: 0 auto;text-align: center">
+        {#        '''姓名、年龄、邮箱、竞选宣言、头像、竞选轮数、票数、拼音首字母'''#}
+                <label>
+                    姓名：<input type="text" name="cName" required="required" style="margin: 5px;">
+                    <br>
+                    类型：
+                   <input list="browsers" name="vTypeId" class="selectpicker show-tick" placeholder="请选择类型" required="required">
+                    <datalist id="browsers">
+                    {% for voteType in voteTypes %}
+                        <option value="{{ voteType.id }}" >{{ voteType.vType }}</option>
+                    {% endfor %}
+                    </datalist>
+                    <br>
+                    头像
+                    <input type="file"  style="height: 37px;"
+                       id="uicon" name="uicon" onchange="check()">
+                     <input type="submit" value="保存">
+                </label>
+
+        </div>
+        </form>
+    {% endblock %}
+    {% block script %}
+{#        <script src="https://cdn.bootcss.com/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>#}
+{#        <script src="https://cdn.bootcss.com/bootstrap-select/1.12.4/js/i18n/defaults-zh_CN.min.js"></script>#}
+        <script src="/static/SitesApp/js/bootstrap-select.min.js"></script>
+        <script src="/static/SitesApp/js/defaults-zh_CN.min.js"></script>
+
+        <script type="text/javascript">
+
+        {#        检查上传的文件是否为图片#}
+        function check() {
+            var icon = document.getElementById("icon").value.toLowerCase().split('.');//以“.”分隔上传文件字符串
+
+            if (icon[icon.length - 1] == 'gif' || icon[icon.length - 1] == 'jpg' || icon[icon.length - 1] == 'bmp'
+                || icon[icon.length - 1] == 'png' || icon[icon.length - 1] == 'jpeg')//判断图片格式
+            {
+                var imagSize = document.getElementById("icon").files[0].size;
+                {#                alert("图片大小：" + imagSize + "B");#}
+                if (imagSize < 1024 * 1024 * 3) {
+                    return true;
+                }
+                alert("图片大小在3M以内，您选中的图片大小为：" + (imagSize / (1024 * 1024)).toFixed(2) + "M");
+
+            }
+            else {
+                alert('请选择格式为*.jpg、*.gif、*.bmp、*.png、*.jpeg 的图片');
+            }
+            {#                文件选择错就把原文件清空#}
+            var obj = document.getElementById('icon');
+            obj.outerHTML = obj.outerHTML;
+
+        }
+
+    </script>
+
+
+    {% endblock %}
+

@@ -1,0 +1,67 @@
+{% extends 'SitesApp/base.html' %}
+{% load static %}
+    {% block title %}
+         <title>首页</title>
+    {% endblock %}
+
+    {% block link %}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.min.css">
+        <link href="{% static 'SitesApp/css/sitesAppCss.css' %}" rel="stylesheet">
+    {% endblock %}
+
+    {% block script %}
+{#        <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>#}
+{#        <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.min.js"></script>#}
+{#        <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.jquery.min.js"></script>#}
+        <script src="/static/SitesApp/js/jquery.min.js"></script>
+        <script src="/static/SitesApp/js/swiper.min.js"></script>
+        <script src="/static/SitesApp/js/swiper.jquery.min.js"></script>
+
+        <script type="text/javascript">
+            $(function () {
+                var mySwiper = new Swiper(
+                    '.swiper-container',
+                    {
+                        direction: 'horizontal',
+                        loop: true,
+                        speed: 2000,
+                        autoplay:1500,
+                        // 如果需要分页器
+                        pagination: '.swiper-pagination',
+
+                        // 如果需要前进后退按钮
+                        nextButton: '.swiper-button-next',
+                        prevButton: '.swiper-button-prev',
+
+                        // 如果需要滚动条
+                        scrollbar: '.swiper-scrollbar'
+                    }
+                )
+            });
+
+    </script>
+    {% endblock %}
+
+    {% block content %}
+        <h1>编程语言</h1>
+        {# 轮播 #}
+        <div class="swiper-container" >
+            <div class="swiper-wrapper">
+                {% for img in imgs  %}
+                    <div class="swiper-slide">
+                        <img src="/static/SitesApp/imgs/language/{{ img.cIcon }}">
+                    </div>
+                {% endfor %}
+            </div>
+            <!-- 如果需要分页器 -->
+            <div class="swiper-pagination"></div>
+
+            <!-- 如果需要导航按钮 -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
+            <!-- 如果需要滚动条 -->
+            <div class="swiper-scrollbar"></div>
+        </div>
+    {% endblock %}
+

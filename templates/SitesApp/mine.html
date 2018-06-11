@@ -1,0 +1,47 @@
+{% extends 'SitesApp/base.html' %}
+
+ {% block title %}
+     <title>我的</title>
+ {% endblock %}
+{% block content %}
+{#   文件上传、验证码、密码加密、会话技术#}
+    <div>
+        头像
+        {% if icon %}
+            <div class="row">
+                  <div class="col-xs-6 col-md-3">
+                    <a href="#" class="thumbnail">
+                      <img src="/static/uploads/{{ icon }}" style="border-radius: 100%;" alt="..." title="{{ uname }}">
+                    </a>
+                  </div>
+                </div>
+        {% else %}
+
+        {% endif %}
+    </div>
+    <form id="formLogin" method="post" action="{% url 'sitesApp:logout' %}">
+    {% csrf_token %}
+
+        <input  type="submit" class="loginBtn" value="退  出"><br>
+
+    </form>
+{% endblock %}
+{% block script %}
+    <script src="/static/SitesApp/js/jquery-form.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+           $("#formLogin").ajaxForm(function(data){
+{#                 alert("post success." + data['status']);#}
+               data = $.parseJSON(data);
+                 if(data['status'] == '1'){
+{#                        alert('退出成功');#}
+                        window.location.href ="{% url 'sitesApp:home' %}";
+                 }else {
+                     alert("退出失败，请检查输入信息!!!");
+                 }
+           });
+        });
+    </script>
+
+{% endblock %}

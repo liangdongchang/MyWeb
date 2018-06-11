@@ -1,0 +1,265 @@
+{% extends 'SitesApp/base.html' %}
+
+    {% block title %}
+        <title>打分</title>
+    {% endblock %}
+    {% block link %}
+        <link href="https://cdn.bootcss.com/bootstrap-select/1.12.4/css/bootstrap-select.min.css" rel="stylesheet">
+        <link href="/static/SitesApp/css/bootstrap-select.min.css" rel="stylesheet">
+
+    {% endblock %}
+    {% block content %}
+        <div style="width: 400px;margin: 0 auto;">
+        <img style="margin: 0 0 5px; height: 100px;display: inline-block;" src="/static/SitesApp/imgs/think.jpg" title="思考">
+        <div class="form-group">
+
+            <span class="glyphicon glyphicon-user"></span>
+            <strong style="color: #222;font-size: 16px;">分享者：</strong>
+
+            {% if who %}
+                    <input list="browsers" id="whoId" class="selectpicker show-tick"  value="{{ who.cName }}" onchange="inputSelect()">
+                {% else %}
+                    <input list="browsers" id="whoId" class="selectpicker show-tick" placeholder="请选择一位分享者" onchange="inputSelect()">
+            {% endif %}
+            <datalist id="browsers">
+                {% for c in candidates %}
+                    <option value="{{ c.cName }}" data-value="{{ c.cName }}"  data-id="{{ c.id }}">{{ c.id }}</option>
+                {% endfor %}
+            </datalist>
+            {% ifequal ip '127.0.0.1'  %}
+                <a href="{% url 'sitesApp:addCandidate' %}" style="color: green;">新增分享者</a>
+            {% endifequal %}
+        </div>
+        </div>
+        <div style="width: 400px;margin: 0 auto;">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="font-size: 16px;width: 100px;text-align: center">当前总分数</th>
+                        <th style="font-size: 16px;width: 100px;text-align: center">班级总人数</th>
+                        <th style="font-size: 16px;width: 100px;text-align: center">打分人数</th>
+                        <th style="font-size: 16px;width: 100px;text-align: center">平均分</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        {% if grade %}
+                                <td>{% widthratio grade.num 1 grade.avg %}</td>
+                                <td>60</td>
+                                <td>{{ grade.num }}</td>
+                                <td>{{ grade.avg }}</td>
+                            {% else %}
+                                <td>0</td>
+                                <td>60</td>
+                                <td>0</td>
+                                <td>0</td>
+                        {% endif %}
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        {% csrf_token %}
+            <button class="vote" style="margin: 10px 10px 0"   value="{{ cs.id }}"  name="{{ cs.cName }}" title ="{{ cs.cDeclaration }}"><span style="color: #D2691E;">打分</span></button>
+            <button class="chat" value="{{ cs.id }}"  name="{{ cs.cName }}" title ="{{ cs.cDeclaration }}"><span style="color: #D2691E;">留言</span></button>
+            <button class="reload" style="margin: 10px 10px 0"   title ="{{ cs.cDeclaration }}"><span style="color: #D2691E;">刷新</span></button>
+
+        <div style="margin: 0 auto;width: 1200px;">
+        <div style="height: 280px;width:400px;text-align: center;float: left">
+            <h2 style="height: 20px; width: 150px;margin-bottom: 15px;">打分区</h2>
+            <div id="chat" style="height: 200px; overflow: auto;width: 350px;border: 2px solid black;border-radius: 5px;">
+                <table >
+                    <thead>
+                        <tr class="danger">
+                            <th style="width: 30px;text-align: center;">序号</th>
+                            <th style="width: 80px;text-align: center;">时间</th>
+                            <th style="width: 50px;text-align: center;">打分者</th>
+                            <th style="width: 40px;text-align: center;">分数</th>
+
+                        </tr>
+                    </thead>
+                    <tbody >
+                        {% if voteRecords %}
+                            {% for voteRecord in voteRecords %}
+                                <tr class="{% cycle 'active' 'success' 'warning' 'info' %}">
+                                     <td> {{ forloop.counter }} </td>
+                                    <td >{{ voteRecord.vDate|date:'Y-m-d ' }}</td>
+                                    <td style=" padding: 0 20px;">guest{{ forloop.counter }} </td>
+                                    <td style=" padding: 0 20px;">{{  voteRecord.vPolls }}</td>
+                                </tr>
+                            {% endfor %}
+                        {% else %}
+                            <tr>
+                                <td colspan="4">无数据</td>
+                            </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+     </div>
+     <div style="height: 280px;width:600px;margin: 0 0 0 40px;text-align: center;float: left;">
+         <h2 style="height: 20px; width: 100px;margin-bottom: 15px;">留言区</h2>
+        <div id="chat" style="height: 200px; width: 800px;overflow: auto;border: 2px solid black;border-radius: 5px;">
+            <table >
+                <thead>
+                    <tr class="danger">
+                        <th style="width: 40px;text-align: center;">序号</th>
+                        <th style="width: 80px;text-align: center;">留言时间</th>
+                        <th style="width: 60px;text-align: center;">留言者</th>
+                        <th style="width: 80px;text-align: center;">标题</th>
+                        <th style="width: 550px;text-align: center;">内容</th>
+                    </tr>
+                </thead>
+                <tbody >
+                    {% if messages %}
+                        {% for message in messages %}
+                            <tr class="{% cycle 'active' 'success' 'warning' 'info' %}">
+                                <td> {{ forloop.counter }} </td>
+                                <td >{{ message.crDateTime|date:'H:i:s' }}</td>
+                                <td style=" padding: 0 40px;">guest{{ forloop.counter }} </td>
+                                <td style=" padding: 0 20px;">评价</td>
+                                <td style=" padding: 0 20px;">{{ message.crInfo }}</td>
+
+                            </tr>
+                        {% endfor %}
+
+                    {% else %}
+                        <tr>
+                            <td colspan="4">无数据</td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+     </div>
+
+    {% endblock %}
+    {% block script %}
+        <script src="https://cdn.bootcss.com/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+        <script src="https://cdn.bootcss.com/bootstrap-select/1.12.4/js/i18n/defaults-zh_CN.min.js"></script>
+
+        <script src="/static/SitesApp/js/bootstrap-select.min.js"></script>
+        <script src="/static/SitesApp/js/defaults-zh_CN.min.js"></script>
+
+        <script type="text/javascript">
+            jQuery(function ($) {
+                $('#whoId').focus();
+
+                var whoId = 0;
+                var times = {{ times }};
+                $("button").click(function () {
+                     whoId = checkInput();
+                    if(whoId == 0){
+                      return
+                  }
+{#                alert(whoId);#}
+                var btnType = $(this).attr("class");
+                var name = $(this).attr("name");
+                <!--打分-->
+                if(btnType == 'vote'){
+                    var judge1 = prompt("请给"+name+"打分(0-100分)");
+                    grades = parseInt(judge1);
+                    if( !checkNumber(judge1) || grades < 0 || grades > 100){
+                        alert("分数范围为0-100");
+                    }
+                    else {
+                        var url = '{% url "sitesApp:addGrade" %}';
+                        $.ajax({
+                            type:"POST",
+                            url: url,
+                            data:{'whoId':whoId,'times': times,'grades':grades},
+                            dataType: "json",
+                            success: function (res) {
+                                {#alert(res);#}
+                                if (res['status'] == 1) {
+                                    alert("打分成功!");
+                                } else {
+                                    alert("您今天已经对" + name + " 打过分了!");
+                                }
+                                url = "/app/grade/?whoId="+whoId+"&times="+times;
+                                window.location.href = url;
+                            },error: function (e) {
+                                alert(e.responseText);
+                            }
+                        });
+                    }
+                }else if(btnType == 'chat'){
+                    var judge = prompt(name + "留言区(最多40个字)");
+                    if (judge && judge.length <= 40) {
+                            url = '{% url "sitesApp:chat" %}';
+                            $.ajax({
+                                type:"POST",
+                                url:url,
+                                data:{"cInfo":judge, "whoId":whoId},
+                                dataType:"json",
+                                success: function(res) {
+                                    if(res['status'] == 1){
+                                        url = "/app/grade/?whoId="+whoId+"&times="+times;
+                                        window.location.href = url;
+                                    }
+                                }
+                            });
+                        } else {
+                            alert("留言失败");
+                        }
+                }else if(btnType == 'reload'){
+                    url = "/app/grade/?whoId="+whoId+"&times="+times;
+                    window.location.href = url;
+                }else{
+
+                }
+            });
+        });
+
+
+            function inputSelect(){
+                var whoId = checkInput();
+                var times = {{ times }};
+                var url = "/app/grade/?whoId="+whoId+"&times="+times;
+                window.location.href = url;
+            }
+
+
+
+            function checkInput() {
+            var input_select=$("#whoId").val();
+            var option = $('option');
+            var option_length=option.length;
+            var option_id='';
+            for(var i=0;i<option_length;i++){
+                var option_value=option.eq(i).attr('data-value');
+                if(input_select==option_value){
+                    option_id=$("option").eq(i).attr('data-id');
+                    break;
+                }
+            }
+            if(option_id != 0){
+               return option_id;
+            }else {
+                alert("请选择一位分享者!!");
+                return 0;
+            }
+        }
+         //验证字符串是否是数字
+            function checkNumber(theObj) {
+          var reg = /^[0-9]+.?[0-9]*$/;
+          return reg.test(theObj);
+        }
+            function showTime(){
+            nowtime=new Date();
+            year=nowtime.getFullYear();
+            month=nowtime.getMonth()+1;
+            date=nowtime.getDate();
+            document.getElementById("mytime").innerText=year+"年"+month+"月"+date+" "+nowtime.toLocaleTimeString();
+        }
+
+            <!--定时刷新时间-->
+            setInterval("showTime()",1000);
+
+
+        </script>
+    {% endblock %}
+
+
