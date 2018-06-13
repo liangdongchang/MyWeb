@@ -11,4 +11,4 @@ web框架：Django
 
 导入的模块：django、pymysql、pillow、django-redis、redis、pytz
 
-详细说明可参考个人博客：https://blog.csdn.net/lm_is_dc
+详细说明可参考本人博客：https://blog.csdn.net/lm_is_dc
