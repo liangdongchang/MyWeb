@@ -287,13 +287,10 @@ def addGrade(request):
     return JsonResponse(data)
 
 
-# 知识点回顾
-
-# @cache_page(60*3,key_prefix='review',cache='redis_special')
+# 事项处理
 @csrf_exempt
 def review(request):
     # TODO
-
     dictData = {}
     # 处理GET请求
     if request.method == "GET":
@@ -303,7 +300,6 @@ def review(request):
             print(dictData['contents'].first().rContent)
 
         return render(request, 'SitesApp/review.html', context=dictData)
-
 
     changeRemark = request.POST.get('changeRemark', None)
     id = request.POST.get('id', None)
@@ -359,20 +355,12 @@ def forum(request):
 def login(request):
 
 
-    # 初始化返回信息
-    respData = {'status': '0', 'ret': '登录失败，输入信息有误!!!'}
-    # # 获取用户访问的路径
-    # visit_path = VISIT_PATH[getUserIP(request)]
-    # VISIT_PATH.pop(getUserIP(request))
-    # if visit_path == r'/app/login/':
-    #     respData['path'] = r'/app/mine/'
-    # else:
-    #     respData['path'] = visit_path
-
-    print('VISIT_PATH', VISIT_PATH)
     if request.method == 'GET':
         return render(request, 'SitesApp/login.html')
     else:
+        # 初始化返回信息
+        respData = {'status': '0', 'ret': '登录失败，输入信息有误!!!'}
+
         # 预定义一个最终返回的Response对象(可以动态地为其配置内容,要想勒令客户端做事情必须要有一个Response对象)
         resp = HttpResponse()
         # 获取用户输入的用户名、密码、验证码
@@ -420,6 +408,17 @@ def login(request):
                 try:
                     user.save()
                     respData = {'status': '1', 'ret': 'login success!'}
+                    # 获取用户访问的路径
+                    visit_path = VISIT_PATH.get(getUserIP(request))
+                    print('visit_path', visit_path)
+                    if visit_path:
+                        VISIT_PATH.pop(getUserIP(request))
+                    if not visit_path or visit_path == r'/app/login/':
+                        respData['path'] = r'/app/mine/'
+                    else:
+                        respData['path'] = visit_path
+
+                    print('VISIT_PATH', VISIT_PATH)
                 except BaseException as e:
                     print(e)
                     respData = {'status': '0', 'ret': '登录失败，输入信息有误!!!'}

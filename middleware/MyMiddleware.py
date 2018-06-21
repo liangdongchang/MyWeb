@@ -19,11 +19,14 @@ from utils.utils import getUserIP
 class SitesAppMiddleware(MiddlewareMixin):
     # 下钩子于所有路由被交给路由表之前
     def process_request(self, request):
-        # 用户的请求是否需要在登录状态下才能查看
-        # VISIT_PATH[getUserIP(request)] = request.path
         if request.path in LOGIN_VISIT:
             utoken = request.COOKIES.get('utoken', None)
             if not utoken:
+                # 用户的请求是否需要在登录状态下才能查看
+                if len(VISIT_PATH.keys()) > 1000:
+                    VISIT_PATH.clear()
+                VISIT_PATH[getUserIP(request)] = request.path
+                print('VISIT_PATH[getUserIP(request)]',VISIT_PATH[getUserIP(request)])
                 return redirect(reverse('SitesApp:login'))
 
     # 下钩子于所有路由请求被交给视图函数之前
