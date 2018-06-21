@@ -10,6 +10,9 @@ from django.db.models import Manager
 # # 设置以后,框架将不在为表生成隐式属性objects
 # # 定义管理器对象的目的,在于: 1、修改框架的默认查询设置 2、为表增加新的自定义功能
 #
+from tinymce.models import HTMLField
+
+
 class MyManager(Manager):
 	# 查询所有记录时默认不包含被逻辑删除的记录
 	def get_queryset(self):
@@ -25,7 +28,7 @@ class User(models.Model):
 	uNickName = models.CharField(max_length=20, default='guest', null=True,verbose_name='昵称')
 	uGender = models.NullBooleanField(default=None,null=True,verbose_name='性别')
 	uAge = models.IntegerField(default=0,verbose_name='年龄')
-	uIcon = models.ImageField(default=None,null=True,blank=True,verbose_name='头像')
+	uIcon = models.ImageField(default=None,null=True,blank=True,verbose_name='头像',upload_to='uploads')
 	uToken = models.CharField(max_length=64, default=None, null=True, blank=True, unique=True,verbose_name='登录状态')
 	uDateTime = models.DateTimeField(auto_now=True,verbose_name='时间')
 	isDelete = models.BooleanField(default=False,verbose_name='是否删除')
@@ -69,7 +72,7 @@ class Candidate(models.Model):
 	isDelete = models.BooleanField(default=False,verbose_name='是否删除')
 
 	# 外键 候选者表与投票类型是一对多的关系一个投票类型对应多个候选者
-	cVoteType = models.ForeignKey(VoteType,on_delete=models.SET_NULL,blank=True,null=True)
+	cVoteType = models.ForeignKey(VoteType,on_delete=models.SET_NULL,blank=True,null=True,verbose_name='投票类型')
 
 	cManager = MyManager()
 
@@ -121,7 +124,7 @@ class ChatRecord(models.Model):
 	crNickName = models.CharField(max_length=20,default='guest',verbose_name='昵称')
 	crIP = models.CharField(max_length=20, default=None, null=True, verbose_name='电脑IP')
 	# 设置时间字段为自动获取当前时间
-	crDateTime = models.DateTimeField(auto_now=True,verbose_name='时间')
+	crDateTime = models.DateTimeField(auto_now_add=True  ,verbose_name='时间')
 	crInfo = models.CharField(max_length=200,verbose_name='内容')
 	crTopic = models.IntegerField(verbose_name='给谁留言')
 	crType = models.IntegerField(verbose_name='类型')
@@ -136,18 +139,22 @@ class ChatRecord(models.Model):
 	class Meta:
 		db_table = 'chatRecords'
 
-# 知识点回顾表
+# 回顾表
 class Review(models.Model):
-	'''作者、时间、主题、内容、地址、重要程度'''
+	'''作者、创建时间、修改时间、主题、内容、备注(0:已办、1:待办、2:计划)、重要程度'''
 	# 知识点回顾表与用户表是一对一的关系
-	rUserId = models.ForeignKey(User, on_delete=models.SET_NULL, blank=True, null=True)
+	rUserId = models.ForeignKey(User, on_delete=models.SET_NULL, blank=True, null=True,verbose_name='用户')
 	# 设置时间字段为自动获取当前时间
-	rDateTime = models.DateTimeField(auto_now=True)
-	rTopic = models.CharField(max_length=20)
-	rInfo = models.CharField(max_length=200)
-	rAddr = models.CharField(max_length=20)
-	rImpo = models.CharField(max_length=20)
-	isDelete = models.BooleanField(default=False)
+	rmDateTime = models.DateTimeField(auto_now=True,verbose_name='修改时间')
+	rcDateTime = models.DateTimeField(auto_now_add=True,verbose_name='创建时间')
+	rTopic = models.CharField(max_length=20,default=None,null=True,blank=True,verbose_name='主题')
+	# 如果想在管理后台使用[富文本编辑器]编辑内容,则内容字段必须为HTMLField
+	# HTMLField来自于第三方框架tinymce(pip3 install django-tinymce)
+	# 为啥HTMLField?--因为被编辑后的文本样式最终是转化为自带css样式的html代码(在数据库中的存储也是html代码形式)
+	rContent = HTMLField(default=None,null=True,blank=True,verbose_name='内容')
+	rRemark = models.IntegerField(default=1,verbose_name='备注(0:已办、1:待办、2:计划、3:归档、4:取消)')
+	rImpo = models.IntegerField(default=0,verbose_name='重要程度(0:一般，1:重要，3:紧急)')
+	isDelete = models.BooleanField(default=False,verbose_name='是否删除')
 	# 使用自定义的管理表类
 	rManager = MyManager()
 

@@ -13,15 +13,17 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+import xadmin
 from django.conf.urls import url,include
 from django.contrib import admin
-
-
 from SitesApp import views
 from SitesApp.admin import mysite
 
 urlpatterns = [
-    url('admin/', mysite.urls),
+    # django内置的后台管理
+    # url('admin/', mysite.urls),
+    # 第三方后台管理xadmin
+	url('^xadmin/', xadmin.site.urls),
 	# 首页
     url('^$', views.index),
 	url('^home/', views.index),

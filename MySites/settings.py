@@ -23,6 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'd^cg&zhekma_br$b39#r7b9hwkkn#!g-gwoo6laon21hdghy+v'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# 打开调试模式
 DEBUG = True
 # 允许其它IP地址访问服务器
 ALLOWED_HOSTS = ['*',]
@@ -38,6 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'SitesApp',
+# 注册富文本应用
+    'tinymce',
+#     注册xadmin应用
+    'xadmin',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -149,8 +155,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'static','uploads')
 # 配置需要登录才能访问的路由
 LOGIN_VISIT = [
     '/app/mine/',
+    '/app/review/',
 ]
-
+VISIT_PATH = {}
 # 自定义的黑名单
 BLACK_LIST = [
     '192.168.116.1',
@@ -186,4 +193,33 @@ CACHES = {
 
 }
 
-REQUESTS = []
+# 以字典形式配置富文本框架tinymce
+# 作用于管理后台中的富文本编辑器
+TINYMCE_DEFAULT_CONFIG = {
+
+    # 使用高级主题,备选项还有简单主题
+    'theme': 'advanced',
+    # 'theme': 'simple',
+
+    # 必须指定富文本编辑器(RTF=rich text format)的宽高
+    'width': 800,
+    'height': 600,
+
+    # 汉化
+    'language': 'zh',
+
+    # 自定义常用的固定样式
+    'style_formats': [
+        # title=样式名称
+        # styles=自定义css样式
+        # inline:xxx = 将加样式后的文本放在行内元素中显示
+        # block:xxx = 将加样式后的文本放在块级元素中显示
+        {'title': 'Bold text', 'inline': 'b'},
+        {'title': 'Red text', 'inline': 'span', 'styles': {'color': '#ff0000'}},
+        {'title': 'Red header', 'block': 'h1', 'styles': {'color': '#ff0000'}},
+        {'title': 'Example 1', 'inline': 'span', 'classes': 'example1'},
+        {'title': 'Example 2', 'inline': 'span', 'classes': 'example2'},
+        {'title': 'Table styles'},
+        {'title': 'Table row 1', 'selector': 'tr', 'classes': 'tablerow1'}
+    ],
+}

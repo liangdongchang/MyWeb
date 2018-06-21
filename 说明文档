@@ -48,9 +48,9 @@
         资料信息表持有外键
 
 3、使用到的技术
-     文件上传、验证码、密码加密、会话技术、缓存、分页、富文本、反向解析、中间件、站点管理
+     文件上传、验证码、密码加密、会话技术、缓存、分页、富文本、反向解析、重定向、中间件、站点管理
 
 4、需要导入的模块
-    django、pymysql、pillow、django-redis、redis
+    django、pymysql、pillow、django-redis、redis、pytz、django-tinymce
 
 

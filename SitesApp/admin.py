@@ -61,12 +61,22 @@ class ChatRecordAdmin(admin.ModelAdmin):
 	# 分组过滤的字段
 	list_filter = ['crUserId','crNickName','crIP','crDateTime','crInfo','crTopic','crType','isDelete']
 
+# 回顾表的后台管理
+class ReviewAdmin(admin.ModelAdmin):
+	# 检索字段
+	search_fields = ['rUserId', 'rcDateTime', 'rmDateTime', 'rTopic', 'rImpo', 'isDelete']
+	# 要显示的字段
+	list_display = ['id', 'rUserId', 'rcDateTime', 'rmDateTime', 'rTopic', 'rContent', 'rImpo', 'rRemark', 'isDelete']
+	# 分组过滤的字段
+	list_filter = [ 'rUserId', 'rcDateTime', 'rmDateTime', 'rTopic',  'rImpo',  'isDelete']
+
+
 mysite.register(User,UserAdmin)
 mysite.register(VoteType,VoteTypeAdmin)
 mysite.register(Candidate,CandidateAdmin)
 mysite.register(VoteRecord,VoteRecordAdmin)
 mysite.register(ChatRecord,ChatRecordAdmin)
-mysite.register(Review)
+mysite.register(Review,ReviewAdmin)
 mysite.register(BlogType)
 mysite.register(Blogs)
 mysite.register(DataBank)

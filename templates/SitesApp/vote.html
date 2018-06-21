@@ -3,11 +3,6 @@
     {% block title %}
      <title>投票</title>
     {% endblock %}
-    {% block style %}
-        <style type="text/css">
-
-        </style>
-    {% endblock %}
     {% block content %}
         {% ifequal ip '127.0.0.1'  %}
                 <a href="{% url 'sitesApp:addCandidate' %}" style="color: green;margin: 0 0 10px;display: inline-block">新增候选者</a>
@@ -65,7 +60,6 @@
                         {% endifequal %}
                     {% endfor %}
 
-
 {#                     下一页按钮#}
                     {% if page.has_next %}
                         <li>
@@ -80,7 +74,6 @@
                             <a href="#" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
-
                         </li>
                     {% endif %}
                 </ul>
@@ -109,7 +102,6 @@
                                     <td style=" padding: 0 20px;">guest{{ forloop.counter }} </td>
                                     <td style=" padding: 0 20px;">评价</td>
                                     <td style=" padding: 0 20px;">{{ message.crInfo }}</td>
-
                                 </tr>
                             {% endfor %}
 
@@ -123,9 +115,9 @@
             </div>
          </div>
 
-
     {% endblock %}
     {% block script %}
+        {{ block.super }}
         <script type="text/javascript">
          /*
 
@@ -200,10 +192,8 @@
                             alert("留言失败");
                         }
                 });
-
             });
         </script>
-
     {% endblock %}
 
 

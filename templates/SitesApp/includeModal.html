@@ -1,0 +1,36 @@
+<form id="formAdd" method="post" action="{% url 'SitesApp:review' %}">
+    {% csrf_token %}
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="exampleModalLabel">New Topic</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="topic" class="control-label">事项主题</label>
+                        <input type="text" class="form-control" id="topic" name="topic" required="required" >
+                        <label for="rImpo" class="control-label">重要程度</label>
+                        <select class="form-control" id="rImpoSelect" >
+                            <option value="0">一般</option>
+                            <option value="1">重要</option>
+                            <option value="2">紧急</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message-text" class="control-label">详细内容:</label>
+                        <textarea class="form-control" id="message-text" name="content"></textarea>
+                    </div>
+                    <button type="button" class="btn btn-primary">提交</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                </div>
+
+                {#                <div class="modal-footer"></div>#}
+            </div>
+        </div>
+    </div>
+</form>
+

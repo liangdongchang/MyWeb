@@ -34,6 +34,7 @@
     </form>
 {% endblock %}
 {% block script %}
+    {{ block.super }}
     <script src="/static/SitesApp/js/jquery-form.js"></script>
     <script type="text/javascript">
         $(function () {
@@ -50,7 +51,8 @@
                 if (data['status'] == '1') {
                     {#                        alert('登录成功');#}
                     {#          跳转到我的主页           #}
-                    window.location.href = "{% url 'sitesApp:mine' %}";
+                    window.location.href = data['path'];
+                    {#window.location.href = "{% url 'sitesApp:mine' %}";#}
                 } else {
                     alert(data['ret']);
                 }
@@ -59,11 +61,8 @@
         //jQuery实现在一个输入框按回车键后光标跳到下一个输入框
         function focusNextInput(thisInput) {
             var inputs = document.getElementsByTagName("input");
-
-
             for (var i = 0; i < inputs.length; i++) {
                 // 如果是最后一个，则焦点回到第一个
-
                 if (i == (inputs.length - 1)) {
                     inputs[0].focus();
                     break;
