@@ -4,6 +4,7 @@
          <title>新增候选人</title>
     {% endblock %}
     {% block link %}
+        {{ block.super }}
 {#        <link href="https://cdn.bootcss.com/bootstrap-select/1.12.4/css/bootstrap-select.min.css" rel="stylesheet">#}
     <link href="/static/SitesApp/css/bootstrap-select.min.css" rel="stylesheet">
 
@@ -35,6 +36,7 @@
         </form>
     {% endblock %}
     {% block script %}
+        {{ block.super }}
 {#        <script src="https://cdn.bootcss.com/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>#}
 {#        <script src="https://cdn.bootcss.com/bootstrap-select/1.12.4/js/i18n/defaults-zh_CN.min.js"></script>#}
         <script src="/static/SitesApp/js/bootstrap-select.min.js"></script>

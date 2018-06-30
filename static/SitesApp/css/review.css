@@ -1,85 +1,134 @@
 .content {
-            padding-top: 60px;
-        }
+    padding-top: 60px;
+}
 
-        .content .main {
-            width: 1300px;
-            margin: 0 auto;
-            padding: 0;
-        }
+.content .main {
+    width: 1300px;
+    margin: 0 auto;
+    padding: 0;
+}
 
-        .content ul, .content li, .content h2 {
-            margin: 0;
-            padding: 0;
-        }
+.content ul, .content li, .content h2 {
+    margin: 0;
+    padding: 0;
+}
 
-        .content ul {
-            list-style: none;
-            height: 50px;
-            margin: 0 auto;
+.content ul {
+    list-style: none;
+    height: 50px;
+    margin: 0 auto;
 
-        }
+}
 
-        .content .main ul li {
-            list-style: none;
-            float: left;
-            width: 420px;
-            padding: 10px;
-            margin: 0 auto;
-        }
+.content .main ul li {
+    list-style: none;
+    float: left;
+    width: 420px;
+    padding: 10px;
+    margin: 0 auto;
+}
 
-        .content .main ul li div {
-            border: 2px solid black;
-            margin-top: 10px;
-            /*height: 470px;*/
-            /*overflow: auto;*/
-        }
-        .content .main .list-group-item{
-            width: 250px;
+.content .main ul li div {
+    border: 2px solid black;
+    margin-top: 10px;
+    /*height: 470px;*/
+    /*overflow: auto;*/
+}
 
-            text-align: center;
-            font-size: 16px;
-            display: inline-block;
-            margin-bottom: 7px;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            overflow: hidden;
-            padding-left:  5px;
-            padding-right:  5px;
+.content .main ul .topicCotent {
+    padding: 0 70px 0;
+    margin: 0 10px 2px;
+}
 
-        }
-        .content .main .add{
-            width: 315px;
-            text-align: center;
-            font-size: 16px;
-            margin: 5px auto;
-            display: block;
-        }
-        .content .main .alredayFin{
-            width: 60px;
-            display: inline-block;
-            padding-left:  5px;
-            padding-right:  5px;
-        }
-        .content .textContent {
-            width: 800px;
+.general, .import, .urgency {
+    font-size: 12px;
+}
 
-            margin: 0 auto;
-        }
+.general {
+    color: green;
+}
 
-        .modal-dialog {
-            width: 850px;
-            margin: 0 auto;
-        }
-        #topic{
-            width: 700px;
-            margin: 0 auto;
+.import {
+    color: #A3541D;
+}
 
-        }
-        #rImpoSelect{
-            width: 100px;
-            margin: 0 auto;
-        }
-        #message-text {
-            width: 900px;
-        }
+.urgency {
+    color: red;
+}
+
+.content .main ul .topicCotent .showTime {
+    font-size: 12px;
+}
+
+.content .main ul .topicCotent .rtopic {
+    font-size: 16px;
+    color: black;
+}
+
+.content .main .list-group-item {
+    width: 350px;
+
+    text-align: center;
+    font-size: 16px;
+    display: inline-block;
+    margin-bottom: 7px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding-left: 5px;
+    padding-right: 5px;
+
+}
+
+.content .main .add {
+    width: 350px;
+    text-align: center;
+    font-size: 16px;
+    margin: 5px auto;
+    display: block;
+}
+
+
+
+
+.content .main .itemsdiv {
+    position: relative;
+}
+
+.content .main .itemBtnDiv {
+    display: inline-block;
+    border: 0;
+    position: absolute;
+    right: 30px;
+
+}
+
+.content .main .itemBtnDiv .itemBtn {
+    color: #DAA520;
+    cursor: pointer;
+}
+
+.content .textContent {
+    width: 800px;
+    margin: 0 auto;
+}
+
+.modal-dialog {
+    width: 850px;
+    margin: 0 auto;
+}
+
+#topic {
+    width: 700px;
+    margin: 0 auto;
+
+}
+
+#rImpoSelect {
+    width: 100px;
+    margin: 0 auto;
+}
+
+#message-text {
+    width: 900px;
+}

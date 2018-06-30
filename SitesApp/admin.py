@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-#注册用户表、投票类型、候选者表、聊天记录、知识点回顾表、博客类型、博客信息表、资料信息表
+#注册用户表、投票类型、候选者表、聊天记录、事项表、博客类型、博客信息表、资料信息表
 
 
 from SitesApp.models import *
@@ -61,7 +61,7 @@ class ChatRecordAdmin(admin.ModelAdmin):
 	# 分组过滤的字段
 	list_filter = ['crUserId','crNickName','crIP','crDateTime','crInfo','crTopic','crType','isDelete']
 
-# 回顾表的后台管理
+# 事项表的后台管理
 class ReviewAdmin(admin.ModelAdmin):
 	# 检索字段
 	search_fields = ['rUserId', 'rcDateTime', 'rmDateTime', 'rTopic', 'rImpo', 'isDelete']

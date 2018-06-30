@@ -26,26 +26,33 @@ $('#exampleModal').on('show.bs.modal', function (event) {
     url = button.data('url'); // 解析出data-url内容
     rImpo = button.data('rimpo'); // 解析出data-rImpo内容
     remark = button.data('remark'); // 解析出data-remark内容
-    if (remark == 0) {
+    //如果是已办事项或归档事项，富文本框就不可编辑
+
+    if (remark == 0 || remark == 3) {
         $('.btn-primary').css('display', 'none');
         $('#topic').attr('disabled', 'disabled');
         $('#rImpoSelect').attr('disabled', 'disabled');
         //设置富文本框不可编辑
         tinymce.activeEditor.getBody().setAttribute('contenteditable', false);
-    }else {
+    } else {
         $('.btn-primary').css('display', 'inline-block');
         $('#topic').removeAttr("disabled");
         $('#rImpoSelect').removeAttr("disabled");
         tinymce.activeEditor.getBody().setAttribute('contenteditable', true);
     }
     modal = $(this);
-    modal.find('.modal-title').text(topic);
-    modal.find('#rImpoSelect').val(rImpo);
+
     // alert(remark);
     if (type == 'add') {
         modal.find('#topic').attr('placeholder', '请填写事项主题');
+        modal.find('.modal-title').text('');
+        modal.find('#rImpoSelect').val(0);
+        modal.find('#topic').val('');
+        SetTinyMceContent('message-text', '');
 
     } else if (type == 'modify') {
+        modal.find('.modal-title').text(topic);
+        modal.find('#rImpoSelect').val(rImpo);
         modal.find('#topic').val(topic);
         SetTinyMceContent('message-text', content);
     }

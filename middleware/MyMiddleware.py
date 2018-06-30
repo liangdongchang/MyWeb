@@ -2,7 +2,8 @@
 @author ldc
 
 '''
-from django.shortcuts import redirect
+from django.http import HttpResponse
+from django.shortcuts import redirect, render
 from django.urls import reverse
 from django.utils.deprecation import MiddlewareMixin
 
@@ -45,6 +46,6 @@ class SitesAppMiddleware(MiddlewareMixin):
         # print(">>>>>>>>>> process_response", request, response)
         return response
 
-# def process_exception(self, request, exception):
-# 	print(">>>>>>>>>> process_exception", request, exception)
-# 	return redirect('/')
+
+    def process_exception(self, request, exception):
+        return render(request,exception)

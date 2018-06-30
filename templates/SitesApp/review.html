@@ -14,7 +14,7 @@
                 <div class="itemsdiv alreadyRe">
                     {% for content in contents %}
                         {% ifequal content.rRemark 0 %}
-                            <button type="button" class="list-group-item topic" data-toggle="modal"
+                            <button type="button" class="list-group-item topicCotent " data-toggle="modal"
                                     data-target="#exampleModal"
                                     data-topic="{{ content.rTopic }}"
                                     data-remark="0"
@@ -24,28 +24,39 @@
                                     data-url="{% url 'SitesApp:review' %}"
                                     data-body="{{ content.rContent }}"
                                     title="{{ content.rTopic }}">
-                                (<span class="showTime">{{ content.rmDateTime }}</span>
-                                {% ifequal  content.rImpo  0 %},一般){% endifequal %}
-                                {% ifequal  content.rImpo  1 %},重要){% endifequal %}
-                                {% ifequal  content.rImpo  2 %},紧急){% endifequal %}
-                                {{ content.rTopic }}
+
+                                <span class="rtopic">{{ content.rTopic }}</span>
+                                <br>
+
+                                {% ifequal  content.rImpo  0 %}<span class="general">一般 </span>{% endifequal %}
+                                {% ifequal  content.rImpo  1 %}<span class="import">重要 </span>{% endifequal %}
+                                {% ifequal  content.rImpo  2 %}<span class="urgency">紧急 </span>{% endifequal %}
+
+                                <span class="showTime">{{ content.rmDateTime }}</span>
+
                             </button>
-                            <button type="button" class="list-group-item alredayFin" title="设置成待办事项"
-                                    onclick="changeRemark(1,{{ content.id }})">
-                                重办
-                            </button>
-                            <button type="button" class="list-group-item alredayFin" title="设置成归档事项"
-                                    onclick="changeRemark(3,{{ content.id }})">
-                                归档
-                            </button>
+                            <div class="itemBtnDiv">
+                                <strong type="button" class="itemBtn alredayFin"
+                                        onclick="changeRemark(1,{{ content.id }})"
+                                        title="设置成待办事项">重办
+                                </strong>
+                                <strong>|</strong>
+                                <strong type="button" class="itemBtn alredayFin"
+                                        onclick="changeRemark(3,{{ content.id }})"
+                                        title="设置成归档事项">归档
+                                </strong>
+                            </div>
+
                         {% endifequal %}
+
                     {% endfor %}
+
 
                 </div>
                 <div class="itemsdiv fileRe" style="display: none">
                     {% for content in contents %}
                         {% ifequal content.rRemark 3 %}
-                            <button type="button" class="list-group-item topic topic" data-toggle="modal"
+                            <button type="button" class="list-group-item topicCotent" data-toggle="modal"
                                     data-target="#exampleModal"
                                     data-topic="{{ content.rTopic }}"
                                     data-remark="3"
@@ -55,17 +66,26 @@
                                     data-url="{% url 'SitesApp:review' %}"
                                     data-body="{{ content.rContent }}"
                                     title="{{ content.rTopic }}">
-                                (<span class="showTime">{{ content.rmDateTime }}</span>
-                                {% ifequal  content.rImpo  0 %},一般){% endifequal %}
-                                {% ifequal  content.rImpo  1 %},重要){% endifequal %}
-                                {% ifequal  content.rImpo  2 %},紧急){% endifequal %}
-                                {{ content.rTopic }}
+
+                                <span class="rtopic">{{ content.rTopic }}</span>
+                                <br>
+
+                                {% ifequal  content.rImpo  0 %}<span class="general">一般 </span>{% endifequal %}
+                                {% ifequal  content.rImpo  1 %}<span class="import">重要 </span>{% endifequal %}
+                                {% ifequal  content.rImpo  2 %}<span class="urgency">紧急 </span>{% endifequal %}
+
+                                <span class="showTime">{{ content.rmDateTime }}</span>
+
                             </button>
-                            <button type="button" class="list-group-item alredayFin" title="取消归档"
-                                    onclick="changeRemark(0,{{ content.id }})">
-                                取消
-                            </button>
+                            <div class="itemBtnDiv">
+
+                                <strong type="button" class="itemBtn alredayFin"
+                                        onclick="changeRemark(0,{{ content.id }})"
+                                        title="取消归档">取消归档
+                                </strong>
+                            </div>
                         {% endifequal %}
+
                     {% endfor %}
 
                 </div>
@@ -74,13 +94,14 @@
             <li class="items">
                 <h2>待办事项</h2>
                 <div class="itemsdiv">
-                    <button type="button" class="list-group-item add topic" data-toggle="modal" data-target="#exampleModal"
+                    <button type="button" class="list-group-item add " data-toggle="modal"
+                            data-target="#exampleModal"
                             data-remark="1" data-type="add" data-url="{% url 'SitesApp:review' %}" data-rimpo="0"
                             title="添加待办事项">添加
                     </button>
                     {% for content in contents %}
                         {% ifequal content.rRemark 1 %}
-                            <button type="button" class="list-group-item topic topic" data-toggle="modal"
+                            <button type="button" class="list-group-item topicCotent" data-toggle="modal"
                                     data-target="#exampleModal"
                                     data-topic="{{ content.rTopic }}"
                                     data-remark="1"
@@ -90,15 +111,25 @@
                                     data-url="{% url 'SitesApp:review' %}"
                                     data-body="{{ content.rContent }}"
                                     title="{{ content.rTopic }}">
-                                (<span class="showTime">{{ content.rmDateTime }}</span>
-                                {% ifequal  content.rImpo  0 %},一般){% endifequal %}
-                                {% ifequal  content.rImpo  1 %},重要){% endifequal %}
-                                {% ifequal  content.rImpo  2 %},紧急){% endifequal %}
-                                {{ content.rTopic }}
+                                <span class="rtopic">{{ content.rTopic }}</span>
+                                <br>
+
+                                {% ifequal  content.rImpo  0 %}<span class="general">一般 </span>{% endifequal %}
+                                {% ifequal  content.rImpo  1 %}<span class="import">重要 </span>{% endifequal %}
+                                {% ifequal  content.rImpo  2 %}<span class="urgency">紧急 </span>{% endifequal %}
+
+                                <span class="showTime">{{ content.rmDateTime }}</span>
+
                             </button>
-                            <button type="button" onclick="changeRemark(0,{{ content.id }})"
-                                    class="list-group-item alredayFin" title="设置成已办事项">已办
-                            </button>
+                            <div class="itemBtnDiv">
+                                <strong type="button" class="itemBtn" onclick="changeRemark(0,{{ content.id }})"
+                                        title="设置成已办事项">已办
+                                </strong>
+                                <strong>|</strong>
+                                <strong type="button" class="itemBtn" onclick="changeRemark(2,{{ content.id }})"
+                                        title="设置成事项">计划
+                                </strong>
+                            </div>
                         {% endifequal %}
 
                     {% endfor %}
@@ -108,13 +139,14 @@
             <li class="items">
                 <h2>远期计划</h2>
                 <div class="itemsdiv">
-                    <button type="button" class="list-group-item add topic" data-toggle="modal" data-target="#exampleModal"
+                    <button type="button" class="list-group-item add " data-toggle="modal"
+                            data-target="#exampleModal"
                             data-remark="2" data-type="add" data-url="{% url 'SitesApp:review' %}" data-rimpo="0"
                             title="添加远期计划">添加
                     </button>
                     {% for content in contents %}
                         {% ifequal content.rRemark 2 %}
-                            <button type="button" class="list-group-item topic" data-toggle="modal"
+                            <button type="button" class="list-group-item topicCotent" data-toggle="modal"
                                     data-target="#exampleModal"
                                     data-topic="{{ content.rTopic }}"
                                     data-remark="2"
@@ -125,20 +157,32 @@
                                     data-body="{{ content.rContent }}"
                                     title="{{ content.rTopic }}">
 
-                                (<span class="showTime">{{ content.rmDateTime }}</span>
-                                {% ifequal  content.rImpo  0 %},一般){% endifequal %}
-                                {% ifequal  content.rImpo  1 %},重要){% endifequal %}
-                                {% ifequal  content.rImpo  2 %},紧急){% endifequal %}
-                                {{ content.rTopic }}
+                            <span class="rtopic">{{ content.rTopic }}</span>
+                            <br>
+
+                            {% ifequal  content.rImpo  0 %}<span class="general">一般 </span>{% endifequal %}
+                            {% ifequal  content.rImpo  1 %}<span class="import">重要 </span>{% endifequal %}
+                            {% ifequal  content.rImpo  2 %}<span class="urgency">紧急 </span>{% endifequal %}
+
+                            <span class="showTime">{{ content.rmDateTime }}</span>
+
                             </button>
-                            <button type="button" class="list-group-item alredayFin" title="设置成待办事项"
-                                    onclick="changeRemark(1,{{ content.id }})">
-                                待办
-                            </button>
-                            <button type="button" class="list-group-item alredayFin" title="取消计划"
-                                    onclick="changeRemark(4,{{ content.id }})">
-                                取消
-                            </button>
+                            <div class="itemBtnDiv">
+                                <strong type="button" class="itemBtn" onclick="changeRemark(1,{{ content.id }})"
+                                        title="设置成待办事项">待办
+                                </strong>
+                                <strong>|</strong>
+                                <strong type="button" class="itemBtn alredayFin"
+                                        onclick="changeRemark(4,{{ content.id }})"
+                                        title="取消计划">取消
+                                </strong>
+                            </div>
+
+
+
+
+
+
                         {% endifequal %}
                     {% endfor %}
 
@@ -150,37 +194,68 @@
 {% endblock %}
 {% block script %}
     {{ block.super }}
-    <script src='/static/tiny_mce/tiny_mce.js'></script> 
+
+
+    <script src="/static/tiny_mce/tiny_mce.js"></script> 
     <script src="/static/SitesApp/js/jquery-form.js"></script>
     <script src='/static/SitesApp/js/reviewJs.js'></script>
+     
     <script type="text/javascript">
+
         $(function ($) {
             {#第一次按下归档事项按钮显示归档事项，第二次按下显示已办事项#}
-            var archiveBtnFlag = false;
+            var archiveBtnFlag = true;
             showTimeMode();
             itemsMode();
 
             $('#archive').click(function () {
-                {#已办事项#}
+                {#点击归档事项#}
                 if (archiveBtnFlag) {
-                    $(this).prev().html('已办事项');
-                    $(this).html('归档事项').attr('title','查看归档事项');
-                    $('.fileRe').css('display', 'none');
-                    $('.alreadyRe').css('display', 'block');
+                    $(this).prev().html('归档事项');
+                    $(this).html('已办事项').attr('title', '查看已办事项');
+                    $('.fileRe').css('display', 'block').find('butoon').addClass('topicCotent');
+                    $('.alreadyRe').css('display', 'none').find('butoon').each(function () {
+                        $(this).removeClass('topicCotent');
+
+                    });
                     archiveBtnFlag = false;
                 } else {
-                    {#归档事项#}
+                    {#点击归档事项#}
+                    $(this).prev().html('已办事项');
+                    $(this).html('归档事项').attr('title', '查看归档事项');
+                    $('.fileRe').css('display', 'none').find('butoon').removeClass('topicCotent');
+                    $('.alreadyRe').css('display', 'block').find('butoon').addClass('topicCotent');
                     archiveBtnFlag = true;
-                    $(this).prev().html('归档事项');
-                    $(this).html('已办事项').attr('title','查看已办事项');
-                    $('.fileRe').css('display', 'block');
-                    $('.alreadyRe').css('display', 'none');
-
                 }
-                itemsMode();
             })
         });
+
+        {#格式化列表#}
+
+        function itemsMode() {
+            {#格式化列表，如果列表中没有事项，就显示暂无事项#}
+            $(".items").each(function () {
+                item = $(this);
+                topic = item.find(".topicCotent");
+
+                if (topic.length > 8) {
+                    {#alert(item.find('div').css('height'));#}
+                    item.find('div').css({"height": "470px", "overflow": "auto"});
+                    {#alert(item.find('div').css('height'));#}
+                }
+                if ($('.fileRe').find('button').length == 0) {
+                    $('.fileRe').html('<span type="button" class="list-group-item add" >暂无</span>');
+                }
+                if ($('.alreadyRe').find('button').length == 0) {
+                    $('.alreadyRe').html('<span type="button" class="list-group-item add" >暂无</span>');
+                }
+
+            });
+
+        }
+
         {#事项类型改变事件#}
+
         function changeRemark(rid, id) {
             var url = "{% url 'SitesApp:review' %}";
             $.ajax({
@@ -195,38 +270,8 @@
             });
         }
 
-        function itemsMode() {
-            {#格式化列表，如果列表中没有事项，就显示暂无事项#}
-            var lis = $(".items");
-
-            var len;
-            for (var i = 0; i < lis.length; i++) {
-                len = $(lis[i]).find(".topic").length;
-
-                 {#alert('lis[i].length '+i+'len '+len);#}
-                if (len === 0) {
-                    lis[i].getElementsByTagName("div")[0].innerHTML = '<span type="button" class="list-group-item add" >暂无</span>'
-                } else if (len > 8) {
-
-                    {#lis[i].getElementsByTagName("div")['height'] = '300px';#}
-                    {#lis[i].getElementsByTagName("div")['overflow'] = 'auto';#}
-                    $(lis[i]).find(".itemsdiv").css('height', '400px').css('overflow', 'auto');
-                }else {
-
-                    $(lis[i]).find(".itemsdiv").css('height', 'auto');
-                }
-            }
-            var alreadyRe = $('.alreadyRe');
-            if (alreadyRe.find('button').length === 0) {
-                alreadyRe.html('<span type="button" class="list-group-item add" >暂无</span>');
-            }
-            var fileRe = $('.fileRe');
-            if (fileRe.find('button').length === 0) {
-                fileRe.html('<span type="button" class="list-group-item add" >暂无</span>');
-            }
-        }
-
         {#显示时间格式#}
+
         function showTimeMode() {
             {#格式化时间，显示为刚发表、几小时前，几天前#}
             var showTIme = document.getElementsByClassName("showTime");

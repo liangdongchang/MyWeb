@@ -25,6 +25,7 @@ SECRET_KEY = 'd^cg&zhekma_br$b39#r7b9hwkkn#!g-gwoo6laon21hdghy+v'
 # SECURITY WARNING: don't run with debug turned on in production!
 # 打开调试模式
 DEBUG = True
+# DEBUG = False
 # 允许其它IP地址访问服务器
 ALLOWED_HOSTS = ['*',]
 
@@ -145,9 +146,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+#全部静态资源存放地址
+# STATIC_ROOT = os.path.join(BASE_DIR,'static')
 # 添加静态资源路由地址
 STATICFILES_DIRS=[
     os.path.join(BASE_DIR,'static'),
+
 ]
 # 配置框架的上传文件保存位置
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static','uploads')
@@ -223,3 +227,4 @@ TINYMCE_DEFAULT_CONFIG = {
         {'title': 'Table row 1', 'selector': 'tr', 'classes': 'tablerow1'}
     ],
 }
+

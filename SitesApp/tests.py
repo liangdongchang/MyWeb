@@ -62,7 +62,10 @@ timedalte 是datetime中的一个对象，该对象表示两个时间的差值
 # pt = r'^[/u4E00-/u9A5]+$'
 # ret = re.match(r'^[\u4e00-\u9fa5]+&','你好')
 # print(ret)
-di = {}
 
-print(type(di))
-print(len(di.keys()))
+from PIL import Image
+import pytesseract
+
+# 上面都是导包，只需要下面这一行就能实现图片文字识别
+text = pytesseract.image_to_string(Image.open('15.jpg'), lang='chi_sim')
+print(text)

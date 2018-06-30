@@ -71,7 +71,7 @@ class ChatRecordAdmin(object):
     # 分组过滤的字段
     list_filter = ['crUserId','crNickName','crIP','crDateTime','crInfo','crTopic','crType','isDelete']
 
-# 回顾表的后台管理
+# 事项表的后台管理
 class ReviewAdmin(object):
     # 检索字段
     search_fields = ['rUserId', 'rcDateTime', 'rmDateTime', 'rTopic', 'rImpo', 'isDelete']

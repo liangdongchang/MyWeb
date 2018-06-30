@@ -198,91 +198,20 @@
 {#</body>#}
 {#</html>#}
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap Modal</title>
-    <link rel="stylesheet" href="/static/SitesApp/css/bootstrap.min.css">
-    <style type="text/css">
-        .modal-dialog{
-            width: 1000px;
-            margin: 0 auto;
-        }
-        #message-text{
-            width: 900px;
-        }
-    </style>
-</head>
-<body>
+    <meta charset="UTF-8">
+    <title>写博客</title>
+        
+    {#  RTF编辑器会动态地给文本添加css样式,这个工作势必借助于JS实现  #}
+    {# 导入框架写好的js #}
+    <script src='static/tiny_mce/tiny_mce.js'></script>  
 
-
-<div class="panel panel-default">
-    <div class="panel-heading">好友列表</div>
-    <div class="panel-body">
-        <div class="list-group" role="group" aria-label="好友列表">
-            <button type="button" class="list-group-item" data-toggle="modal" data-target="#exampleModal"
-                    data-whatever="张三">张三
-            </button>
-            <button type="button" class="list-group-item" data-toggle="modal" data-target="#exampleModal"
-                    data-whatever="李四">李四
-            </button>
-            <button type="button" class="list-group-item" data-toggle="modal" data-target="#exampleModal"
-                    data-whatever="王二">王二
-            </button>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                        aria-hidden="true">×</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">New message</h4>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="form-group">
-                        <label for="recipient-name" class="control-label">Recipient:</label>
-                        <input type="text" class="form-control" id="recipient-name">
-                    </div>
-                    <div class="form-group">
-                        <label for="message-text" class="control-label">Message:</label>
-                        <textarea class="form-control" id="message-text"></textarea>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Send message</button>
-            </div>
-        </div>
-    </div>
-</div>
-<script src="/static/SitesApp/js/jquery.min.js"></script>
-<script src="/static/SitesApp/js/bootstrap.min.js"></script>
-<script src='/static/tiny_mce/tiny_mce.js'></script> 
-
-<script>
-    $(function ($) {
-    $('#exampleModal').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget); // 触发事件的按钮
-        var recipient = button.data('whatever'); // 解析出data-whatever内容
-        modal = $(this);
-        modal.find('.modal-title').text('Message To ' + recipient);
-        modal.find('.modal-body input').val(recipient)
-    });
-    $('.btn-primary').click(function () {
-        $('#exampleModal').modal('hide');
-        console.log($('#message-text').html());
-    });
-
+    {# 自定义脚本对当前页的RTF编辑器做配置 #}
+    {# 配置的解释请参加settings.py #}
+    <script>
         tinyMCE.init({
             'mode': 'textareas',
-            {#'theme': 'simple',#}
             'theme': 'advanced',
             'width': 800,
             'height': 600,
@@ -295,11 +224,21 @@
                 {'title': 'Example 2', 'inline': 'span', 'classes': 'example2'},
                 {'title': 'Table styles'},
                 {'title': 'Table row 1', 'selector': 'tr', 'classes': 'tablerow1'}
-            ]
+            ],
         })
+    </script>
+</head>
+<body>
 
-    });
+<form method="post" >
+    {% csrf_token %}
+    <input type="text" placeholder="请输入标题..." name="title"><br>
 
-</script>
+    {# 普通页面中的富文本编辑器对应着textarea表单控件 #}
+    <textarea name="content"></textarea>
+
+    {# 被提交的文本内容会以html代码的形式存储与服务端的数据库中 #}
+    <input type="submit" value="发表" style="width: 176px;">
+</form>
 </body>
 </html>

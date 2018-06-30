@@ -139,10 +139,11 @@ class ChatRecord(models.Model):
 	class Meta:
 		db_table = 'chatRecords'
 
-# 回顾表
+# 事项表
 class Review(models.Model):
 	'''作者、创建时间、修改时间、主题、内容、备注(0:已办、1:待办、2:计划)、重要程度'''
-	# 知识点回顾表与用户表是一对一的关系
+	# 事项表与用户表是一对多的关系
+
 	rUserId = models.ForeignKey(User, on_delete=models.SET_NULL, blank=True, null=True,verbose_name='用户')
 	# 设置时间字段为自动获取当前时间
 	rmDateTime = models.DateTimeField(auto_now=True,verbose_name='修改时间')

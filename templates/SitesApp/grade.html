@@ -26,11 +26,12 @@
                        onchange="inputSelect()">
             {% endif %}
             <datalist id="browsers">
+
                 {% for c in candidates %}
                     <option value="{{ c.cName }}" data-value="{{ c.cName }}" data-id="{{ c.id }}">{{ c.id }}</option>
                 {% endfor %}
             </datalist>
-            {% ifequal ip '127.0.0.1' %}
+            {% ifequal userName 'admin' %}
                 <a href="{% url 'sitesApp:addCandidate' %}" style="color: green;">新增分享者</a>
             {% endifequal %}
         </div>

@@ -86,10 +86,11 @@ class OperateChatRecordT(OperateTable):
     def query(self, **kwargs):
         return self.table.crManager.filter(**kwargs)
 
-# 回顾表
+# 事项表
 class OperateReviewT(OperateTable):
     def query(self, **kwargs):
-        return self.obj.rManager.filter(**kwargs).order_by(('-rmDateTime'))
+        # 查询结果按修改时间排序，降序
+        return self.obj.rManager.filter(**kwargs).order_by(('rmDateTime'))
 
 # 实例化类
 # 用户表
@@ -102,7 +103,7 @@ opeVoteTypeT = OperateVoteTypeT(VoteType)
 opeVoteRecordT = OperateVoteRecordT(VoteRecord)
 # 聊天记录表
 opeChatRecordT = OperateChatRecordT(ChatRecord)
-# 回顾表
+# 事项表
 opeReviewT = OperateReviewT(Review)
 
 if __name__ == '__main__':

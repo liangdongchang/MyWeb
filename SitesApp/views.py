@@ -2,6 +2,7 @@ import json
 import os
 import random
 import string
+import time
 import uuid
 
 import datetime
@@ -11,6 +12,7 @@ from PIL import ImageFont
 
 import io
 
+from django.core.cache import cache
 from django.core.paginator import Paginator
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
@@ -18,15 +20,17 @@ from django.http import JsonResponse
 from django.shortcuts import render, redirect
 
 # Create your views here.
+from django.template import loader
 from django.urls import reverse
 
 # 网站地址主页
 from django.views.decorators.cache import cache_page
 from django.views.decorators.csrf import csrf_exempt
 
+
 from MySites.settings import STATICFILES_DIRS, BASE_DIR, VISIT_PATH
 from SitesApp.models import *
-from utils.DBUtils import opeVoteRecordT, opeVoteTypeT, opeCandidateT, opeChatRecordT, opeReviewT
+from utils.DBUtils import opeVoteRecordT, opeVoteTypeT, opeCandidateT, opeChatRecordT, opeReviewT, opeUserT
 
 from utils.utils import getRandomColor, useMd5, getUserIP, voteCount, getFirstLetters
 
@@ -37,12 +41,12 @@ def checkLogin(request):
     utoken = request.COOKIES.get('utoken', None)
     if utoken:
         # 从服务端表中查找相同令牌的记录
-        print('utoken=',utoken)
+        # print('utoken=',utoken)
         user = User.uManager.filter(uToken=utoken).first()
 
         # 如果确实有匹配的用户记录,则所有用户信息(状态)都可以访问
         if user:
-            print('user.token', user.uToken)
+            # print('user.token', user.uToken)
             return user
     return None
 
@@ -52,13 +56,13 @@ def getUser(request):
     user = checkLogin(request)
     # 如果用户已经登录就返回该用户
     if user:
-        print('用户已经登录', user)
+        # print('用户已经登录', user)
         return user
     ip = getUserIP(request)
-    print('获取用户ip', ip)
+    # print('获取用户ip', ip)
     # 如果用户已存在就返回该用户
     user = User.uManager.filter(uName=ip)
-    print('根据ip获取到的用户', user)
+    # print('根据ip获取到的用户', user)
     if user.exists():
         return user.first()
     # 如果用户不存在就添加该用户
@@ -79,31 +83,37 @@ def index(request):
 
 def home(request):
     voteType = opeVoteTypeT.query(vType__contains='编程').first()
-    print(opeCandidateT.query(cVoteType_id=voteType.id).first().cIcon)
-    # path = os.path.join(STATICFILES_DIRS[0], 'SitesApp','imgs','language')
-    # list1 = os.listdir(path)
-    dictData = {
-        'imgs': opeCandidateT.query(cVoteType_id=voteType.id),
-    }
+    if voteType:
+        # print(opeCandidateT.query(cVoteType_id=voteType.id).first().cIcon)
+        # path = os.path.join(STATICFILES_DIRS[0], 'SitesApp','imgs','language')
+        # list1 = os.listdir(path)
+        dictData = {
+            'imgs': opeCandidateT.query(cVoteType_id=voteType.id),
+        }
+    else:
+        dictData = {
+                'imgs':['python.jpg','c++.jpg','c.jpg','c井.jpg','go.jpg','java.jpg','js.jpg','php.jpg','ruby.jpg','易语言.jpg','汇编语言.jpg'],
+        }
+
     return render(request, 'SitesApp/home.html', context=dictData)
 
 
 # 投票
 def vote(request, pageNum):
-    print('要第几页数据', pageNum)
+    # print('要第几页数据', pageNum)
     if not pageNum:
         pageNum = 1
     # 	获取用户IP
     ip = getUserIP(request)
     # 把本机地址传到页面，页面才能显示新增候选者按钮
-    dictData = {'ip': '127.0.0.1'}
+    dictData = {'userName': getUser(request).uName}
 
     #  获取候选者
     candidates = Candidate.cManager.filter(cVoteType__vType__contains='编程').order_by('-cVotes')
     # 用户投票结果列表
     isVoteLists = []
     for candidate in candidates:
-        print(candidate.cName, '的票数为', candidate.cVotes)
+        # print(candidate.cName, '的票数为', candidate.cVotes)
         # 判断当前IP今天是否已经对该候选者投过票
         isVote = opeVoteRecordT.query(vCandidateId_id=candidate.id, isDelete=0, vTypeId_id=candidate.cVoteType_id,
                                       vComIP=ip,
@@ -172,12 +182,12 @@ def addVote(request):
             poills -= 1
         # 修改投票记录
         if not opeVoteRecordT.modify(isVote.id, isDelete=not isVote.isDelete):
-            print('修改投票记录失败')
+            # print('修改投票记录失败')
             return JsonResponse(data)
-        print('现在是取消(True)还是投票(False)', isVote.isDelete)
+        # print('现在是取消(True)还是投票(False)', isVote.isDelete)
         # 修改候选者票数
         if not opeCandidateT.modify(candidate.id, cVotes=poills):
-            print('修改候选者记录失败')
+            # print('修改候选者记录失败')
             return JsonResponse(data)
 
     else:
@@ -205,14 +215,17 @@ def shareNav(request):
 # 打分
 @csrf_exempt
 def grade(request):
-    print('来到了这里')
+    dictData = {}
     vtype = opeVoteTypeT.query(vType__contains='打分').first()
-    candidates = Candidate.cManager.filter(cVoteType_id=vtype.id).order_by('cPinyin')
+    if vtype:
+        candidates = Candidate.cManager.filter(cVoteType_id=vtype.id).order_by('cPinyin')
+    else:
+        return render(request, 'SitesApp/grade.html', context=dictData)
+
     dictData = {'candidates': candidates}
     ip = getUserIP(request)
     whoId = request.GET.get('whoId', None)
     times = request.GET.get('times', None)
-    print('要谁的数据', whoId)
     if whoId and whoId != '0':
         # 判断用户是否已经打分,
         isVote = opeVoteRecordT.query(vTimes=times, vCandidateId_id=whoId, vComIP=ip,
@@ -222,7 +235,6 @@ def grade(request):
             dictData['done'] = 1
         candidate = candidates.get(id=whoId)
         dictData['who'] = candidate
-        print('候选者的名字', candidate.cName)
         # 获取打分记录
         voteRecords = opeVoteRecordT.query(vCandidateId_id=whoId, vTimes=times,
                                            vDate=datetime.datetime.now().__format__('%Y-%m-%d'))
@@ -230,8 +242,6 @@ def grade(request):
             dictData['voteRecords'] = voteRecords
             # 统计分数
             dictData['grade'] = voteCount(voteRecords)
-            for k, v in dictData['grade'].items():
-                print(k, v)
         # 获取留言信息
         now = datetime.datetime.now()
         start = now - datetime.timedelta(hours=now.hour, minutes=now.minute, seconds=now.second,
@@ -240,8 +250,7 @@ def grade(request):
         if chatRecords.exists():
             dictData['messages'] = chatRecords
 
-    if ip == '127.0.0.1':
-        dictData['ip'] = ip
+    dictData['userName'] = getUser(request).uName
     dictData['times'] = 1
     return render(request, 'SitesApp/grade.html', context=dictData)
 
@@ -249,7 +258,7 @@ def grade(request):
 # 增加分数
 @csrf_exempt
 def addGrade(request):
-    print('***********************************')
+
     whoId = request.POST.get('whoId', None)
     times = request.POST.get('times', None)
     grades = request.POST.get('grades', None)
@@ -268,22 +277,22 @@ def addGrade(request):
     isVote = opeVoteRecordT.query(vTimes=times, vCandidateId_id=whoId, vComIP=ip,
                                   vDate=datetime.datetime.now().__format__('%Y-%m-%d')).first()
     if isVote:
-        print('已经投过票了')
+        # print('已经投过票了')
         return JsonResponse({'status': 0, 'msg': 'already grade'})
 
     # 若用户还没有打分就添加打分记录
     if not opeVoteRecordT.add(vUserId_id=user.id, vCandidateId_id=candidate.id, vComIP=ip,
                               vTypeId_id=candidate.cVoteType_id, vPolls=grades, vTimes=times):
-        print('新增打分记录出错')
+        # print('新增打分记录出错')
         return JsonResponse({'status': 0, 'msg': 'add voteRecord faild'})
     # 候选者打分人数加1
     if not opeCandidateT.modify(candidate.id, cVotes=candidate.cVotes + 1):
-        print('修改候选者记录出错')
+        # print('修改候选者记录出错')
         return JsonResponse({'status': 0, 'msg': 'modify candidateRecord faild'})
-    print('给谁打分', whoId, '第几轮', times, '多少分：', grades)
-    print('运行到这里啦')
+    # print('给谁打分', whoId, '第几轮', times, '多少分：', grades)
+    # print('运行到这里啦')
     data = {'status': 1, 'msg': 'success'}
-    print(type(data), '***', data)
+    # print(type(data), '***', data)
     return JsonResponse(data)
 
 
@@ -296,15 +305,11 @@ def review(request):
     if request.method == "GET":
         reviews = opeReviewT.query(rUserId_id=getUser(request).id)
         dictData['contents'] = reviews
-        if reviews:
-            print(dictData['contents'].first().rContent)
-
         return render(request, 'SitesApp/review.html', context=dictData)
 
     changeRemark = request.POST.get('changeRemark', None)
     id = request.POST.get('id', None)
     remark = request.POST.get('remark', None)
-    print('id=',id,'remark=',remark)
     # 如果changeRemark为真，只修改rReamrk字段
     if changeRemark:
         if opeReviewT.modify(id=id,rRemark=remark):
@@ -351,10 +356,7 @@ def forum(request):
 
 
 # 登录
-# @cache_page(60*3,key_prefix='indexs',cache='redis_special')
 def login(request):
-
-
     if request.method == 'GET':
         return render(request, 'SitesApp/login.html')
     else:
@@ -403,6 +405,7 @@ def login(request):
                 token = str(uuid.uuid4())
                 # 将该令牌/信物存储在客户端的cookie中,过期时间一天
                 resp.set_cookie('utoken', token, expires=60 * 60 * 24)
+                resp.set_cookie('uid', user.id, expires=60 * 60 * 24)
                 # 将同样的信物存一份在服务端的表中
                 user.uToken = token
                 try:
@@ -410,7 +413,7 @@ def login(request):
                     respData = {'status': '1', 'ret': 'login success!'}
                     # 获取用户访问的路径
                     visit_path = VISIT_PATH.get(getUserIP(request))
-                    print('visit_path', visit_path)
+                    # print('visit_path', visit_path)
                     if visit_path:
                         VISIT_PATH.pop(getUserIP(request))
                     if not visit_path or visit_path == r'/app/login/':
@@ -418,9 +421,10 @@ def login(request):
                     else:
                         respData['path'] = visit_path
 
-                    print('VISIT_PATH', VISIT_PATH)
+                    # print('VISIT_PATH', VISIT_PATH)
                 except BaseException as e:
-                    print(e)
+                    # print(e)
+                    pass
                     respData = {'status': '0', 'ret': '登录失败，输入信息有误!!!'}
         resp.content = json.dumps(respData)
         return resp
@@ -440,7 +444,7 @@ def register(request):
         # 拿到用户上传的文件数据,类型是框架类InMemoryUploadedFile
         uiconFile = request.FILES.get('uicon', None)
         # <class 'django.core.files.uploadedfile.InMemoryUploadedFile'>
-        print(uname, unick, upwd, vcode, uiconFile, type(uiconFile))
+        # print(uname, unick, upwd, vcode, uiconFile, type(uiconFile))
 
         # 手动存储上传的文件
         # 自定义文件位置
@@ -474,12 +478,14 @@ def register(request):
                 user.save()
                 return JsonResponse({'status': 1, 'ret': 'register success!'})
             except BaseException as e:
-                print(e)
+                # print(e)
+                pass
 
         return JsonResponse({'status': 0, 'ret': '输入信息有误!'})
 
 
 # 我的
+# @cache_page(60*3,key_prefix='indexs',cache='redis_special')
 def mine(request):
     # # 从cookie中获取保存在客户端的用户状态
     # uname = request.COOKIES.get('uname',None)
@@ -489,16 +495,37 @@ def mine(request):
     # # upwd = request.session.get('upwd',None)
 
     # 从token中获取用户状态
-    user = getUser(request)
-    print('user login', user.uName)
-    if not user.uIcon:
-        user.uIcon = "mine.png"
-    print('user uIcon', user.uIcon)
-    dictData = {'user': user}
-    return render(request, 'SitesApp/mine.html', context=dictData)
+
+    uid = request.COOKIES.get('uid',None)
+    if uid:
+        content = cache.get('mine'+uid)
+    else:
+        content = None
+    if not content:
+        # time.sleep(5)
+        user = getUser(request)
+        if not user.uIcon:
+            user.uIcon = "mine.png"
+        dictData = {'user': user}
+        template = loader.get_template('SitesApp/mine.html')
+        content = template.render(context=dictData)
+        cache.set('mine'+str(user.id), content)
+        return HttpResponse(content)
+    else:
+        return HttpResponse(content)
+
+
+    # user = getUser(request)
+    # print('user login', user.uName)
+    # if not user.uIcon:
+    #     user.uIcon = "mine.png"
+    # print('user uIcon', user.uIcon)
+    # dictData = {'user': user}
+    # return render(request, 'SitesApp/mine.html', context=dictData)
 
 
 # 退出登录
+@csrf_exempt
 def logout(request):
     resp = HttpResponse()
     # 勒令客户端干掉自己保存的用户状态
@@ -510,6 +537,10 @@ def logout(request):
 
     # 干掉token,勒令客户端删除自己的Cookie中的token
     resp.delete_cookie('utoken')
+    uid = request.COOKIES.get('uid')
+    uid = request.COOKIES.get('uid', None)
+    if uid:
+        content = cache.set('mine' + uid,None)
 
     resp.content = json.dumps({'status': '1'})
 
@@ -571,7 +602,7 @@ def getvcode(request):
 def chat(request):
     cInfo = request.POST.get('cInfo')
     whoId = request.POST.get('whoId')
-    print('给谁留言', whoId)
+    # print('给谁留言', whoId)
     # 通过用户IP查找用户的名字
     ip = getUserIP(request)
     user = getUser(request)
@@ -592,14 +623,13 @@ def addCandidate(request):
         dictDaata = {
             'voteTypes': voteTypes
         }
-        for k in voteTypes:
-            print('投票类型:', k.vType)
+
         return render(request, 'SitesApp/addCondidate.html', context=dictDaata)
     newCandidate = Candidate()
 
     newCandidate.cName = request.POST.get('cName', None)
     cIcon = request.FILES.get('uicon', None)
-    print('上传的图像为', cIcon)
+    # print('上传的图像为', cIcon)
     if cIcon:
         newCandidate.cIcon = cIcon
     else:
@@ -626,6 +656,7 @@ def addCandidate(request):
         else:
             return redirect(reverse('SitesApp:home'))
     except BaseException as e:
-        print(e)
+        # print(e)
+        pass
     return JsonResponse({'status': 0, 'msg': '添加失败'})
     # return HttpResponse('添加失败')

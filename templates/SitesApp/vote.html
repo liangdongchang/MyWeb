@@ -4,7 +4,7 @@
      <title>投票</title>
     {% endblock %}
     {% block content %}
-        {% ifequal ip '127.0.0.1'  %}
+        {% ifequal userName 'admin'  %}
                 <a href="{% url 'sitesApp:addCandidate' %}" style="color: green;margin: 0 0 10px;display: inline-block">新增候选者</a>
         {% endifequal %}
         <div style="width: 800px;margin: 0 auto;">

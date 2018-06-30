@@ -1,70 +1,79 @@
 {% extends 'SitesApp/base.html' %}
 {% load static %}
-    {% block title %}
-         <title>首页</title>
-    {% endblock %}
+{% block title %}
+    <title>首页</title>
+{% endblock %}
 
-    {% block link %}
-        {{ block.super}}
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.min.css">
-        <link href="{% static 'SitesApp/css/sitesAppCss.css' %}" rel="stylesheet">
-        <link rel="icon" type="image/x-icon" href="/static/SitesApp/imgs/home_selected.png">
-    {% endblock %}
+{% block link %}
+    {{ block.super }}
 
-    {% block script %}
-        {{ block.super}}
-{#        <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>#}
-{#        <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.min.js"></script>#}
-{#        <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.jquery.min.js"></script>#}
-{#        <script src="/static/SitesApp/js/jquery.min.js"></script>#}
-        <script src="/static/SitesApp/js/swiper.min.js"></script>
-        <script src="/static/SitesApp/js/swiper.jquery.min.js"></script>
+    <link rel="stylesheet" href="{% static '/SitesApp/css/swiper.min.css' %}">
+    {#    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.min.css">#}
+    <link href="{% static 'SitesApp/css/sitesAppCss.css' %}" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/static/SitesApp/imgs/home_selected.png">
+{% endblock %}
 
-        <script type="text/javascript">
-            $(function () {
-                var mySwiper = new Swiper(
-                    '.swiper-container',
-                    {
-                        direction: 'horizontal',
-                        loop: true,
-                        speed: 2000,
-                        autoplay:1500,
-                        // 如果需要分页器
-                        pagination: '.swiper-pagination',
+{% block script %}
+    {{ block.super }}
+    {#        <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>#}
+    {#        <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.min.js"></script>#}
+    {#        <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.jquery.min.js"></script>#}
+    {#        <script src="/static/SitesApp/js/jquery.min.js"></script>#}
+    <script src="/static/SitesApp/js/swiper.min.js"></script>
+    <script src="/static/SitesApp/js/swiper.jquery.min.js"></script>
 
-                        // 如果需要前进后退按钮
-                        nextButton: '.swiper-button-next',
-                        prevButton: '.swiper-button-prev',
+    <script type="text/javascript">
+        $(function () {
+            var mySwiper = new Swiper(
+                '.swiper-container',
+                {
+                    direction: 'horizontal',
+                    loop: true,
+                    speed: 2000,
+                    autoplay: 1500,
+                    // 如果需要分页器
+                    pagination: '.swiper-pagination',
 
-                        // 如果需要滚动条
-                        scrollbar: '.swiper-scrollbar'
-                    }
-                )
-            });
+                    // 如果需要前进后退按钮
+                    nextButton: '.swiper-button-next',
+                    prevButton: '.swiper-button-prev',
+
+                    // 如果需要滚动条
+                    scrollbar: '.swiper-scrollbar'
+                }
+            )
+        });
 
     </script>
-    {% endblock %}
+{% endblock %}
 
-    {% block content %}
-        <h1>编程语言</h1>
-        {# 轮播 #}
-        <div class="swiper-container" >
-            <div class="swiper-wrapper">
-                {% for img in imgs  %}
-                    <div class="swiper-slide">
+{% block content %}
+    <h1>编程语言</h1>
+    {# 轮播 #}
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+
+            {% for img in imgs %}
+                <div class="swiper-slide">
+                    {% if img.cIcon %}
                         <img src="/static/SitesApp/imgs/language/{{ img.cIcon }}">
-                    </div>
-                {% endfor %}
-            </div>
-            <!-- 如果需要分页器 -->
-            <div class="swiper-pagination"></div>
+                    {% else %}
+                        <img src="/static/SitesApp/imgs/language/{{ img }}">
+                    {% endif %}
+                </div>
+            {% endfor %}
 
-            <!-- 如果需要导航按钮 -->
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
 
-            <!-- 如果需要滚动条 -->
-            <div class="swiper-scrollbar"></div>
         </div>
-    {% endblock %}
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination"></div>
+
+        <!-- 如果需要导航按钮 -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+        <!-- 如果需要滚动条 -->
+        <div class="swiper-scrollbar"></div>
+    </div>
+{% endblock %}
 

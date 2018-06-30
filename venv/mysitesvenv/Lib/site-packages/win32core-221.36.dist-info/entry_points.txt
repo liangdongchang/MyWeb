@@ -1,0 +1,4 @@
+[console_scripts]
+makepy = win32.com.client.makepy:main
+verstamp = win32.verstamp:main
+

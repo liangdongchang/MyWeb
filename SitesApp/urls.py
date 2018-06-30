@@ -21,7 +21,7 @@ urlpatterns = [
     url(r'^grade/', views.grade,name='grade'),
     # 增加分数
     url(r'^addGrade/', views.addGrade,name='addGrade'),
-    # 知识点回顾
+    # 事项
     url(r'^review/', views.review, name='review'),
     # 博客
     url(r'^blog/', views.blog, name='blog'),
