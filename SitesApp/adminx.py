@@ -8,6 +8,7 @@ class BaseSetting(object):
     enable_themes = True    # 使用主题
     use_bootswatch = True
 
+
 # 全局设置
 class GlobalSettings(object):
     site_title = '个人网站管理系统'  # 标题

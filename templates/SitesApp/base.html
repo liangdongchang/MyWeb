@@ -5,7 +5,8 @@
 <head>
     <meta charset="UTF-8" content="">
     {#    响应式web设计，自适应浏览器大小#}
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+{#    <meta name="viewport" content="width=device-width, initial-scale=1">#}
+    <meta name="viewport" content="width=device-width,user-scalable=no"/>
     <meta name="save" content="history">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="{% static 'SitesApp/css/sitesAppCss.css' %}" rel="stylesheet">
@@ -35,7 +36,8 @@
         button:hover {
             box-shadow: 5px 5px 5px #000;
         }
-        .box .header{
+
+        .box .header {
             z-index: 100;
         }
     </style>

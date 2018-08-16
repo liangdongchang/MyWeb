@@ -45,6 +45,7 @@ INSTALLED_APPS = [
 #     注册xadmin应用
     'xadmin',
     'crispy_forms',
+    'haystack',
 ]
 
 MIDDLEWARE = [
@@ -57,6 +58,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     #     注册自定义的中间件
     'middleware.MyMiddleware.SitesAppMiddleware',
+
 ]
 
 ROOT_URLCONF = 'MySites.urls'
@@ -147,7 +149,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 #全部静态资源存放地址
-# STATIC_ROOT = os.path.join(BASE_DIR,'static')
+STATIC_ROOT = '/static/'
 # 添加静态资源路由地址
 STATICFILES_DIRS=[
     os.path.join(BASE_DIR,'static'),
@@ -228,3 +230,14 @@ TINYMCE_DEFAULT_CONFIG = {
     ],
 }
 
+# Haystack
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
+        'URL': 'http://127.0.0.1:9200/',  # 此处为elasticsearch运行的服务器ip地址，端口号固定为9200
+        'INDEX_NAME': 'mysites',  # 指定elasticsearch建立的索引库的名称
+    },
+}
+
+# 当添加、修改、删除数据时，自动生成索引
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
