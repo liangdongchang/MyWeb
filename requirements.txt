@@ -20,7 +20,7 @@ Pillow==5.1.0
 PyMySQL==0.8.1
 python-ptrace==0.9.4
 pytz==2018.4
-PyYAML==3.12
+PyYAML==5.1
 redis==2.10.6
 six==1.11.0
 sqlparse==0.3.0
