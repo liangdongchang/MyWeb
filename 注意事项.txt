@@ -1,0 +1,5 @@
+1、先到根目录\MySite\MySite\settings.py中填写自己的mysql账号与密码，并创建数据库MySites
+2、配置好虚拟环境后，导入requirements.txt的的库,另外导入xadmin
+使用命令
+pip install -r requirements.txt
+pip install xadmin-django2.zip

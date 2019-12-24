@@ -97,9 +97,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         # 数据库名称
         'NAME': 'MySites',
-        # 账号和密码
+        # 账号和密码,填写你的账号与密码
         'USER': 'root',
-        'PASSWORD': '123456',
+        'PASSWORD': 'ldc-root',
         # IP和端口
         'HOST': 'localhost',
         'PORT': '3306',
